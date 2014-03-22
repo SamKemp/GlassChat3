@@ -42,7 +42,7 @@
 
 function clientRequests()
  while true do
-   id, msg = rednet.recieve()
+   id, msg = rednet.receive()
    rednet.broadcast(msg)
  end
 end
