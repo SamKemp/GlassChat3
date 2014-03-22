@@ -21,7 +21,7 @@ print("  Done!")
 print("startup file updated!")
 
 print("Fetching /client/update.lua from GitHub...")
-    updateGet = http.get("https://raw.github.com/lesander/GlassChat3/master/client/update.lua")
+    updateGet = http.get("https://raw.github.com/lesander/GlassChat3/master/pastebin-files/pastebin-install-client.lua")
 print("  Done!")
 
 print("Updating update...")
