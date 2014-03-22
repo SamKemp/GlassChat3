@@ -42,8 +42,9 @@
 
 function clientRequests()
  while true do
-  id, msg = rednet.recieve()
-  rednet.broadcast(msg)
+   id, msg = rednet.recieve()
+   rednet.broadcast(msg)
+ end
 end
 
 parallel.waitForAny(clientRequests)
