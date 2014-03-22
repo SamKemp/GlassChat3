@@ -32,6 +32,7 @@
         if peripheral.getType(value1)=="modem" then
             clientM = peripheral.wrap(value1)
             clientM_side = value1
+           rednet.open(value1)
         elseif peripheral.getType(value1)=="openperipheral_glassesbridge" then
             clientB = peripheral.wrap(value1)
             clientB_side = value1
@@ -101,3 +102,8 @@
     print("ID: "..clientID)
     print("Server: "..clientS)
     print("Name: "..clientN)
+
+    while true do
+        e, msg_raw = os.pullEvent("chat_command")
+       rednet.send(clientS, ""..clientN..": "..msg_raw)
+     end
