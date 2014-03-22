@@ -39,6 +39,8 @@
     
     
     -- Print basic info to screen
+    term.clear()
+    term.setCursorPos(1,1)
     term.setTextColor(colors.yellow)
     print("GlassChat 3 Client "..clientV)
     term.setTextColor(colors.white)
