@@ -1,6 +1,6 @@
 -- GlassChat 3 Client Pastebin Updater/Installer
 -- By Tiiger87 and Alexandrov01
-getfile = http.get("https://raw.github.com/lesander/GlassChat3/master/pastebin-files/pastebin-install-client.lua")
+getfile = http.get("https://raw.github.com/lesander/GlassChat3/master/client/update.lua")
 print("Got update file from github...")
 file = fs.open("temp-update", "w")
     file.write( getfile.readAll() )
