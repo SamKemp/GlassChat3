@@ -100,7 +100,7 @@
     term.setTextColor(colors.white)
     print("ID: "..clientID)
     print("Server: "..clientS)
-    print("Name: "..clientN)
+    --print("Name: "..clientN)
 
     while true do
         e, msg_raw = os.pullEvent("chat_command")
