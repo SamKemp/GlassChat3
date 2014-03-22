@@ -13,9 +13,7 @@
     
     --Checks if computer is an advanced computer
     if term.isColor() == false then
-        term.setTextColor(colors.red)
         print("ERROR: Not an advanced computer! Please check your computer setup.")
-        term.setTextColor(colors.white)
         error()
     end
     
