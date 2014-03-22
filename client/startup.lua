@@ -3,6 +3,15 @@
 
 
 -- INITIALIZE SETTINGS
+    --[[
+        Variables explained:
+        clientV = version
+        clientID = PC ID
+        clientM = modem
+        clientB = bridge
+        clientN = name
+        clientS = chatroom
+    ]]--
     clientV = "3.0.0 BETA";
     clientID = os.getComputerID()
     
@@ -11,13 +20,13 @@
     clientM = nil
     clientB = nil
     
-    --Checks if computer is an advanced computer
+    -- Checks if computer is an advanced computer
     if term.isColor() == false then
         print("ERROR: Not an advanced computer! Please check your computer setup.")
         error()
     end
     
-    --Gets terminal bridge and wired modem side
+    -- Gets terminal bridge and wired modem side
     sides = {"top", "bottom", "left", "right", "front", "back"}
     for key1, value1 in pairs(sides) do
         if peripheral.getType(value1)=="modem" then
@@ -35,6 +44,27 @@
         error()
     end
     
+    -- Get username from file
+    if fs.exists("data/username") then
+        usern = fs.open("data/username", "r")
+            clientN = usern.readAll()
+        usern.close()
+    else
+        term.setTextColor(colors.red)
+        print("ERROR: Missing username file in data/username!")
+        term.setTextColor(colors.white)
+    end
+    
+    -- Get server cluster from file
+    if fs.exists("data/chatroom") then
+        servern = fs.open("data/chatroom", "r")
+            clientS = servern.readAll()
+        servern.close()
+    else
+        term.setTextColor(colors.red)
+        print("ERROR: Missing server ID file in data/chatroom!")
+        term.setTextColor(colors.white)
+    end
     
     -- Print basic info to screen
     term.clear()
@@ -43,3 +73,5 @@
     print("GlassChat 3 Client "..clientV)
     term.setTextColor(colors.white)
     print("ID: "..clientID)
+    print("Server: "..clientS)
+    print("Name: "..clientN)
