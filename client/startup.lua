@@ -31,8 +31,10 @@
     for key1, value1 in pairs(sides) do
         if peripheral.getType(value1)=="modem" then
             clientM = peripheral.wrap(value1)
+            clientM_side = value1
         elseif peripheral.getType(value1)=="openperipheral_glassesbridge" then
             clientB = peripheral.wrap(value1)
+            clientB_side = value1
         end
     end
     
@@ -61,8 +63,7 @@
         term.setTextColor(colors.white)
         error()
     end]]--
-    
-    
+
     
     -- Get server cluster from file
     if fs.exists("data/chatroom") then
@@ -81,6 +82,15 @@
         term.setTextColor(colors.white)
         error()
     end
+    
+    
+    -- Opens rednet modem
+    clientM.open(clientM_side)
+    
+    
+    -- Get username from server
+    
+    
     
     -- Print basic info to screen
     term.clear()
