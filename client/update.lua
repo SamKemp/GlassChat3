@@ -8,28 +8,71 @@ print("Client Updater")
 term.setTextColor(colors.white)
 print("")
 
-print("Fetching /client/startup.lua from GitHub...")
+print("1. Fetching /client/startup.lua from GitHub...")
     startupGet = http.get("https://raw.github.com/lesander/GlassChat3/master/client/startup.lua")
-print("  Done!")
+print("   Done!")
 
-print("Updating startup...")
+print("2. Updating startup...")
     file = fs.open("startup", "w")
     file.write( startupGet.readAll() )
     file.close()
-print("  Done!")
+print("   Done!")
 
-print("startup file updated!")
-
-print("Fetching /client/update.lua from GitHub...")
+print("3. Fetching /client/update.lua from GitHub...")
     updateGet = http.get("https://raw.github.com/lesander/GlassChat3/master/pastebin-files/pastebin-install-client.lua")
-print("  Done!")
+print("   Done!")
 
-print("Updating update...")
+print("4. Updating update...")
     file = fs.open("update", "w")
     file.write( updateGet.readAll() )
     file.close()
-print("  Done!")
+print("   Done!")
 
-print("update file updated!")
+print("5. Creating data folder...")
+    shell.run("mkdir", "data")
+print("   Done!")
+
+print("6. Username:")
+function setUsername()
+    print("Enter a username: ")
+    givenUser = read()
+    if givenUser == "" then
+        print("No username given!")
+        setUsername()
+    else
+        setUser = fs.open("data/username", "w")
+        setUser.write(givenUser)
+        setUser.close()
+        print("Username set to "..givenUser)
+        print("   Done!")
+    end
+end
+if fs.exists("data/username") then
+    print("   Already exists!")
+    print("   Done!")
+else
+    setUsername()
+end
+
+print("7. Server Cluster")
+function setServer()
+    print("Enter Server ID: ")
+    givenServer = read()
+    if givenServer == "" then
+        setServer()
+    else
+        setServer = fs.open("data/chatroom", "w")
+        setServer.write(givenServer)
+        setServer.close()
+        print("Server set to "..givenServer)
+        print("   Done!")
+    end
+end
+if fs.exists("data/chatroom") then
+    print("   Already exists!")
+    print("   Done!")
+else
+    setServer()
+end
 
 print("Update complete.")
