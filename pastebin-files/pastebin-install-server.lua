@@ -1,0 +1,15 @@
+-- GlassChat 3 Server Pastebin Updater/Installer
+-- By Tiiger87 and Alexandrov01
+getfile = http.get("https://raw.github.com/lesander/GlassChat3/master/server/update.lua")
+print("Got update file from github...")
+file = fs.open("temp-update", "w")
+    file.write( getfile.readAll() )
+file.close()
+print("Created temp file...")
+print("Running temp file...")
+shell.run("temp-update")
+sleep(1)
+shell.run("rm", "temp-update")
+print("Temp file removed. Now rebooting...")
+sleep(3)
+os.reboot()
