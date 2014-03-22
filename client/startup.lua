@@ -20,7 +20,7 @@
     end
     
     --Gets terminal bridge and wired modem side
-    sides = ("top", "bottom", "left", "right", "front", "back")
+    sides = {"top", "bottom", "left", "right", "front", "back"}
     for key1, value1 in pairs(sides) do
         if peripheral.getType(value1)==modem then
             clientM = peripheral.wrap(value1)
