@@ -104,5 +104,5 @@
 
     while true do
         e, msg_raw = os.pullEvent("chat_command")
-       rednet.send(clientS, ""..clientN..": "..msg_raw)
+        rednet.send(clientS, ": "..msg_raw)
      end
