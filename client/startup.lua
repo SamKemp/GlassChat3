@@ -1,24 +1,44 @@
--- GlassChat 3 Client By tiiger87 and alexandrov01
+-- GlassChat 3 Client
+-- By Tiiger87 and Alexandrov01
 
---Checks if computer is an advnaced computer, if not then the script gets halted
-if term.isColor() == false then
- print("Not an advanced computer! Please check your computer setup")
- os.exit()
-end
 
-clientM = nil
-clientB = nil
-
---Gets terminal bridge and wired modem side, if one of them is not detected the script gets halted
-for k,v in pairs(redstone.getSides()) do
- if peripheral.getType(v)==modem then
-  clientM = peripheral.wrap(v)
- elseif peripheral.getType(v)==openperipheral_glassesbridge then
-  clientB = peripheral.wrap(v)
- end
-end
-
-if clientM == nil or clientB = nil then
- print("Missing modem or bridge! Please check your computer setup")
- os.exit()
-end
+-- INITIALIZE SETTINGS
+    clientV = "3.0.0 BETA";
+    clientID = os.getComputerID()
+    
+    
+    
+    clientM = nil
+    clientB = nil
+    
+    --Checks if computer is an advanced computer
+    if term.isColor() == false then
+        term.setTextColor(colors.red)
+        print("ERROR: Not an advanced computer! Please check your computer setup.")
+        term.setTextColor(colors.white)
+        os.exit()
+    end
+    
+    --Gets terminal bridge and wired modem side
+    for k,v in pairs(redstone.getSides()) do
+        if peripheral.getType(v)==modem then
+            clientM = peripheral.wrap(v)
+        elseif peripheral.getType(v)==openperipheral_glassesbridge then
+            clientB = peripheral.wrap(v)
+        end
+    end
+    
+    -- Checks if modem and bridge are present.
+    if clientM == nil or clientB = nil then
+        term.setTextColor(colors.red)
+        print("ERROR: Missing modem or bridge! Please check your computer setup.")
+        term.setTextColor(colors.white)
+        os.exit()
+    end
+    
+    
+    -- Print basic info to screen
+    term.setTextColor(colors.yellow)
+    print("GlassChat 3 Client "..clientV)
+    term.setTextColor(colors.white)
+    print("ID: "..clientID)
