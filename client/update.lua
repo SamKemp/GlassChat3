@@ -32,7 +32,4 @@ print("  Done!")
 
 print("update file updated!")
 
-print("Rebooting!")
-sleep(2)
-
-os.reboot()
+print("Update complete.")
