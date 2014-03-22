@@ -29,7 +29,7 @@
     end
     
     -- Checks if modem and bridge are present.
-    if clientM == nil or clientB = nil then
+    if clientM == nil or clientB == nil then
         term.setTextColor(colors.red)
         print("ERROR: Missing modem or bridge! Please check your computer setup.")
         term.setTextColor(colors.white)
