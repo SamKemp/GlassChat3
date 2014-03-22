@@ -44,6 +44,7 @@
 function clientRequests()
  while true do
    id, msg = rednet.receive()
+   print (id .." - ".. msg)
    rednet.broadcast(msg)
  end
 end
