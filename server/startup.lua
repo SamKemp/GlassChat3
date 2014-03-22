@@ -37,3 +37,13 @@
     print("GlassChat 3 Server "..serverV)
     term.setTextColor(colors.white)
     print("ID: "..serverID)
+   
+   -- Functions
+
+function clientRequests()
+ while true do
+  id, msg = rednet.recieve()
+  rednet.broadcast(msg)
+end
+
+parallel.waitForAny(clientRequests)
