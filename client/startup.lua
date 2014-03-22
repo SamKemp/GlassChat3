@@ -49,10 +49,17 @@
         usern = fs.open("data/username", "r")
             clientN = usern.readAll()
         usern.close()
+        if clientN == "" then
+            term.setTextColor(colors.red)
+            print("ERROR: Empty username in data/username!")
+            term.setTextColor(colors.white)
+            error()
+        end
     else
         term.setTextColor(colors.red)
         print("ERROR: Missing username file in data/username!")
         term.setTextColor(colors.white)
+        error()
     end
     
     -- Get server cluster from file
@@ -60,10 +67,17 @@
         servern = fs.open("data/chatroom", "r")
             clientS = servern.readAll()
         servern.close()
+        if clientS == "" then
+            term.setTextColor(colors.red)
+            print("ERROR: Empty server ID in data/chatroom!")
+            term.setTextColor(colors.white)
+            error()
+        end
     else
         term.setTextColor(colors.red)
         print("ERROR: Missing server ID file in data/chatroom!")
         term.setTextColor(colors.white)
+        error()
     end
     
     -- Print basic info to screen
