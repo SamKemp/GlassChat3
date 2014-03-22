@@ -18,6 +18,7 @@
     for key1, value1 in pairs(sides) do
         if peripheral.getType(value1)=="modem" then
             serverM = peripheral.wrap(value1)
+            rednet.open(value1)
         end
     end
     
