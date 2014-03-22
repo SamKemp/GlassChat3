@@ -86,7 +86,7 @@
     
     
     -- Opens rednet modem
-    clientM.open(clientM_side)
+   -- clientM.open(clientM_side)
     
     
     -- Get username from server
