@@ -45,7 +45,7 @@
     end
     
     -- Get username from file
-    if fs.exists("data/username") then
+    --[[if fs.exists("data/username") then
         usern = fs.open("data/username", "r")
             clientN = usern.readAll()
         usern.close()
@@ -60,7 +60,9 @@
         print("ERROR: Missing username file in data/username!")
         term.setTextColor(colors.white)
         error()
-    end
+    end]]--
+    
+    
     
     -- Get server cluster from file
     if fs.exists("data/chatroom") then
