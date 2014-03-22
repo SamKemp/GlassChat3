@@ -16,11 +16,11 @@
         term.setTextColor(colors.red)
         print("ERROR: Not an advanced computer! Please check your computer setup.")
         term.setTextColor(colors.white)
-        os.exit()
+        error()
     end
     
     --Gets terminal bridge and wired modem side
-sides = {"top", "bottom", "left", "right", "front", "back"}
+    sides = ("top", "bottom", "left", "right", "front", "back")
     for v in sides do
         if peripheral.getType(v)==modem then
             clientM = peripheral.wrap(v)
@@ -34,7 +34,7 @@ sides = {"top", "bottom", "left", "right", "front", "back"}
         term.setTextColor(colors.red)
         print("ERROR: Missing modem or bridge! Please check your computer setup.")
         term.setTextColor(colors.white)
-        os.exit()
+        error()
     end
     
     
