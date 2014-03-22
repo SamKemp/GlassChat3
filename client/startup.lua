@@ -31,8 +31,7 @@
     for key1, value1 in pairs(sides) do
         if peripheral.getType(value1)=="modem" then
             clientM = peripheral.wrap(value1)
-            clientM_side = value1
-           rednet.open(value1)
+            rednet.open(value1)
         elseif peripheral.getType(value1)=="openperipheral_glassesbridge" then
             clientB = peripheral.wrap(value1)
             clientB_side = value1
