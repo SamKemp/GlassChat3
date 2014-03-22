@@ -4,7 +4,7 @@
 term.clear()
 term.setCursorPos(1,1)
 term.setTextColor(colors.yellow)
-print("Client Updater")
+print("Client Updater v2")
 term.setTextColor(colors.white)
 print("")
 
@@ -34,16 +34,16 @@ print("   Done!")
 
 print("6. Username:")
 function setUsername()
-    print("Enter a username: ")
+    print("   Enter a username: ")
     givenUser = read()
     if givenUser == "" then
-        print("No username given!")
+        print("   No username given!")
         setUsername()
     else
         setUser = fs.open("data/username", "w")
         setUser.write(givenUser)
         setUser.close()
-        print("Username set to "..givenUser)
+        print("   Username set to "..givenUser)
         print("   Done!")
     end
 end
@@ -56,15 +56,16 @@ end
 
 print("7. Server Cluster")
 function setServer()
-    print("Enter Server ID: ")
+    print("   Enter Server ID: ")
     givenServer = read()
     if givenServer == "" then
+        print("   No server ID given!")
         setServer()
     else
         setServer = fs.open("data/chatroom", "w")
         setServer.write(givenServer)
         setServer.close()
-        print("Server set to "..givenServer)
+        print("   Server set to "..givenServer)
         print("   Done!")
     end
 end
@@ -74,5 +75,6 @@ if fs.exists("data/chatroom") then
 else
     setServer()
 end
-
+term.setTextColor(colors.yellow)
 print("Update complete.")
+term.setTextColor(colors.white)
