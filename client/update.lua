@@ -34,8 +34,8 @@ print("   Done!")
 
 print("6. Username:")
 function setUsername()
-    print("   Enter a username: ")
-    givenUser = read()
+    print("   Enter a username: "..givenUser = read())
+    
     if givenUser == "" then
         print("   No username given!")
         setUsername()
@@ -56,8 +56,8 @@ end
 
 print("7. Server Cluster")
 function setServer()
-    print("   Enter Server ID: ")
-    givenServer = read()
+    print("   Enter Server ID: "..givenServer = read())
+    
     if givenServer == "" then
         print("   No server ID given!")
         setServer()
