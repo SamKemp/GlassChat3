@@ -15,6 +15,7 @@ GlassChat 3 requires [ComputerCraft](http://computercraft.info) and [OpenPeriphe
 The FTB Direwolf 1.6.4 modpack has all these mods already installed. This version of GlassChat was developed on a live server with FTB Direwolf20 1.6.4 v1.0.18. GlassChat also needs the HTTP API to be enabled in your CCcraft.conf  server file.
 
 **Building your Cluster**
+
 Firstly, you'll need to build a GlassChat Cluster. A cluster exists out of a server and clients. All computers used need to be Advanced Computers. 
 
 Clients need to have a [Terminal Glasses Bridge](http://wiki.technicpack.net/Terminal_Glasses_Bridge). 
@@ -30,13 +31,14 @@ Below you can see an example setup of a GlassChat Cluster using a modem and netw
 Now that you've set up your GlassChat Cluster, you'll need to make 1 [Terminal Glasses](http://wiki.technicpack.net/Terminal_Glasses) for every client you have. You now need to link each Terminal Glasses with a Client. Do this by right-clicking the Terminal Glasses Bridge connected to the client. Your glasses are now linked to your client.
 
 **Installing the Software**
+
 Okay, so now that we've got all the hardware set up, let's start installing the software!
 
-- **Installing the Server's software**
+- **Installing the Server's software** 
 Go to your server and enter `pastebin get Y5R5R9Cv update`. You can view the pastebin code [here](http://pastebin.com/Y5R5R9Cv) if you don't trust us ;)
 Once the download is ready, run `update`. The computer will now download the server startup.lua from GitHub and put it in the `startup` file. When that's finished, the computer will reboot. That's it for the server part!
 
-- **Installing the Client's software**
+- **Installing the Client's software** 
 Go to your client and enter `pastebin get zfmzr5vH update`. You can view the pastebin code [here](http://pastebin.com/zfmzr5vH) if you don't trust us ;)
 Once the download is ready, run `update`. The computer will now download the client startup.lua from GitHub and put it in the `startup` file. The installer will now prompt you for a username. Enter the name you want to be known as in the chat (No worries, you can always change your nickname later). 
 Now the installer will prompt you for the Server's Cluster ID. Go back to your server and look for the `ID: xxx` at the top of the screen. That's the Server's Cluster ID. Enter that ID at your client. The installer will now finish the setup and reboot your client.
@@ -50,9 +52,11 @@ Now the installer will prompt you for the Server's Cluster ID. Go back to your s
 To be able to chat, you need to wear [your Terminal Glasses linked to your Client](https://github.com/lesander/GlassChat3#how-to-get-started).
 
 **Sending Messages**
+
 To send a message, type `$$` in the chat bar, followed by your message. For example: `$$Hello world!` or `$$ Hello world!`.
 
 **Client Commands**
+
 The GlassChat Client has several commands available. All commands start with `$$gc`, followed by the actual command. Here's a list of all the commands:
 - `$$gc help` list all commands.
 - `$$gc info` list all connected clients, their nicknames and the Server Cluster ID.
@@ -63,6 +67,7 @@ The GlassChat Client has several commands available. All commands start with `$$
 - `$$gc nick {input}` set a new nickname, where `{input}` is your new nickname.
 
 **Server Commands**
+
 The GlassChat Server also has some commands available to make life easier. Commands can be submitted by pressing the key of the command inside the Server's terminal.
 - Press `U` to **Update** all connected clients.
 - Press `R` to **Reboot** all connected clients.
