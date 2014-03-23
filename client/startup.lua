@@ -1,6 +1,6 @@
 -- GlassChat 3 Client
 -- By Tiiger87 and Alexandrov01
-clientB.clear()
+
 
 -- INITIALIZE SETTINGS
     --[[
@@ -51,7 +51,7 @@ clientB.clear()
         term.setTextColor(colors.white)
         error()
     end
-    
+    clientB.clear()
     -- Get username from file
     if fs.exists("data/username") then
         usern = fs.open("data/username", "r")
