@@ -102,7 +102,16 @@
     print("Server: "..clientS)
     --print("Name: "..clientN)
 
+function sendChat()
     while true do
         e, msg_raw = os.pullEvent("chat_command")
         rednet.send(clientS, ": "..msg_raw)
      end
+end
+
+function receiveChat()
+  while true do
+   senderID, message = rednet.receive()
+   print(message)
+ end
+end
