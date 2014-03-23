@@ -167,17 +167,16 @@ function receiveChat()
     table.insert(scroll, "0xFFFF00"..message)
     text = clientB.addText(x, y, string.sub(value1, 9), 0xFFFF00)
     y = y + z
-    autoscroll()
    else
        table.insert(scroll, "0xFFFFFF"..message)
        text = clientB.addText(x, y, message, 0xFFFFFF)
        y = y + z
-       autoscroll()
    end
  end
 end
 
 function autoscroll()
+ while os.pullevent(rednet_message) do
     if y >= startscroll then
      refreshHUD()
      table.remove(scroll, 1)
@@ -186,6 +185,7 @@ function autoscroll()
         y = y + z
       end
     end
+  end
 end
 
 function refreshHUD()
@@ -201,4 +201,4 @@ rednet.send(clientS, "!gc username "..clientN)
 
 refreshHUD()
 
-parallel.waitForAny(sendChat, receiveChat)
+parallel.waitForAny(sendChat, receiveChat, autoscroll)
