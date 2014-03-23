@@ -50,6 +50,8 @@
     print("R: Restart all clients.")
     print("S: Update server.")
     print("----------------------")
+    
+    rednet.broadcast("Chatroom back online!")
    
    -- Functions
     
