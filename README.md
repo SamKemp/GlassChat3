@@ -7,16 +7,16 @@ Did you ever want to chat with other players in [Minecraft](http://minecraft.net
 In GlassChat 3, you can send messages directly, without the server knowing, to other players. No plugins required!
 
 **Features of GlassChat 3:**
-1. Fast and secure chatting (no public rednet)
-2. No plugins required.
-3. Multi-dimensional: works everywhere, thanks to Terminal Glasses!
-4. Positioned in the top-left corner of your screen, so you'll be able to follow two chats at the same time.
-5. 100% free and open source.
-6. Nicknames
-7. Colored chat
-8. Easily add custom commands
-9. Basic IRC commands
-10. And way more!
+- Fast and secure chatting (no public rednet)
+- No plugins required.
+- Multi-dimensional: works everywhere, thanks to Terminal Glasses!
+- Positioned in the top-left corner of your screen, so you'll be able to follow two chats at the same time.
+- 100% free and open source.
+- Nicknames
+- Colored chat
+- Easily add custom commands
+- Basic IRC commands
+- And way more!
 
 
 
