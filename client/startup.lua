@@ -131,6 +131,7 @@ function autoscroll()
   if y >= startscroll then
     print("autoscrolling!")
     table.remove(scroll, 1)
+    table.remove(scroll, 1)
     refreshHUD()
       for key1, value1 in pairs(scroll) do
         text = clientB.addText(x, y, value1, 0xFFFFFF)
