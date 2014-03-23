@@ -1,6 +1,16 @@
 -- GlassChat 3 Client Update
 -- By Tiiger87 and Alexandrov01
 
+ sides = {"top", "bottom", "left", "right", "front", "back"}
+    for key1, value1 in pairs(sides) do
+        if peripheral.getType(value1)=="openperipheral_glassesbridge" then
+            clientB = peripheral.wrap(value1)
+        end
+    end
+
+clientB.clear()
+text = clientB.addText(x, y, "GlassChat is updating!", 0xFFFF00)
+
 term.clear()
 term.setCursorPos(1,1)
 term.setTextColor(colors.yellow)
