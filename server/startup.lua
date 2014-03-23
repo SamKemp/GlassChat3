@@ -52,8 +52,19 @@
     print("K: Kill server.")
     print("----------------------")
     
+    function count(input)
+        if type(input)~='table' then
+            return nil
+        end
+        local int=0
+        for k,v in pairs(input) do
+            int=int+1
+        end
+        return int
+    end
+    
     rednet.broadcast("Chatroom is back online!")
-    connectedUsersCount = #names
+    connectedUsersCount = count(names)
     rednet.broadcast(connectedUsersCount.." connected users.")
    
    -- Functions
