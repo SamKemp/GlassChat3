@@ -1,6 +1,6 @@
 -- GlassChat 3 Client
 -- By Tiiger87 and Alexandrov01
-
+clientB.clear()
 
 -- INITIALIZE SETTINGS
     --[[
@@ -135,6 +135,7 @@ function autoscroll()
   startscroll = maxlines * z + starty
  while true do
   if y >= startscroll then
+    clientB.clear()
     text = clientB.addText(x, y, "GlassChat ".. clientV .." - Do $$(msg) to chat!", 0xFFFF00)
      y = y + z
      table.remove(scroll, 1)
