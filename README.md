@@ -1,6 +1,6 @@
-# ![GlassChat Logo](http://assets.gingergaming.com/img/glasschat/glasschat-logo.png) #
-**The all-new GlassChat 3. By Tiger & Alex**
-NOTICE: Not ready for use yet.
+![GlassChat 3](http://assets.gingergaming.com/img/glasschat/logo.png)
+![Developed with <3 by Tiger and Alex](http://assets.gingergaming.com/img/glasschat/authors.png)
+![Notice: Current build is not ready for use yet.](http://assets.gingergaming.com/img/glasschat/build-notready.png)
 
 Did you ever want to chat with other players in [Minecraft](http://minecraft.net), but without using the main chat? No? Well, now you do, because we present to you: GlassChat3.
 In GlassChat 3, you can send messages directly, without the server knowing, to other players. No plugins required!
