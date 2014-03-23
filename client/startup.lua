@@ -115,3 +115,6 @@ function receiveChat()
    print(message)
  end
 end
+
+
+parallel.waitForAny(sendChat, recieveChat)
