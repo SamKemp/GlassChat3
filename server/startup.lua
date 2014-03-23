@@ -70,8 +70,8 @@ function clientRequests()
 
       elseif string.match(msg, '^!gc newusername') then
         newname = string.sub(msg, 17)
-	rednet.broadcast(names[id].."has changed his/her name to "..newname..".")
-        print(names[id].."has changed his/her name to "..newname..".")
+	rednet.broadcast(names[id].." has changed his/her name to "..newname..".")
+        print(names[id].." has changed his/her name to "..newname..".")
         names[id] = newname
 
         file2 = fs.open("data/names","w")
