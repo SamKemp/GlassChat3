@@ -122,7 +122,7 @@ function receiveChat()
    print(message)
    autoscroll()
    table.insert(scroll, message)
-   y = y + z
+    y = y + z
  end
 end
 
@@ -142,8 +142,6 @@ function autoscroll()
         text = clientB.addText(x, y, value1, 0xFFFFFF)
         y = y + z
       end
-     else
-        text = clientB.addText(x, y, message, 0xFFFFFF) 
    end
  end
 
