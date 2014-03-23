@@ -180,7 +180,7 @@ function receiveChat()
       for key1, value1 in pairs(scroll) do
         text = clientB.addText(x, y, string.sub(value1, 9), tonumber ( string.sub(value1, 1 , 8) ) )
         y = y + z
-        print(key1..";"..value1)
+        print(key1..";"..value1..";"..x..";"..y)
       end
     end
  end
