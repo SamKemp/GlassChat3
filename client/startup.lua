@@ -119,7 +119,7 @@ function receiveChat()
    senderID, message = rednet.receive()
    print(message)
    y = y + z
-   text = clientB.addText(25, y, message, 0xFFFFFF)  
+   clientB.addText(x, y, message, 0xFFFFFF)  
  end
 end
 
