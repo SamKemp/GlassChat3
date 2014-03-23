@@ -132,8 +132,9 @@ y = y + z
 rednet.send(clientS, "!gc username "..clientN)
 
 function autoscroll()
+  startscroll = maxlines * z + starty
  while true do
-  if y <= maxlines * z + starty then
+  if y <= startscroll then
     text = clientB.addText(x, y, "GlassChat ".. clientV .." - Do $$(msg) to chat!", 0xFFFF00)
      y = y + z
      table.remove(scroll, 1)
