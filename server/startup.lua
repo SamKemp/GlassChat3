@@ -50,7 +50,10 @@ function clientRequests()
 	rednet.broadcast("Computer "..id.." joined under the name of "..names[id]..".")
         print(names[id].."("..id..") joined.")
      else
-          print(names[id].."("..id..")  -  "..msg)
+	print(names[id])
+	print(id)
+        print(msg)
+          print(names[id].."("..id..") - "..msg)
           rednet.broadcast(names[id]..": "..msg)
      end
     end
