@@ -199,4 +199,4 @@ rednet.send(clientS, "!gc username "..clientN)
 
 refreshHUD()
 
-parallel.waitForAny(sendChat, receiveChat, autoscroll)
+parallel.waitForAny(sendChat, receiveChat)
