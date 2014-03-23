@@ -142,6 +142,7 @@ function autoscroll()
         text = clientB.addText(x, y, value1, 0xFFFFFF)
         y = y + z
       end
+    sleep(1)
    end
  end
 end
