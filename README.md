@@ -1,5 +1,4 @@
-GlassChat3
-==========
+![GlassChat Logo](http://assets.gingergaming.com/img/glasschat/glasschat-logo.png)
 **The all-new GlassChat 3. By Tiger & Alex**
 NOTICE: Not ready for use yet.
 
