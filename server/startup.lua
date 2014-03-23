@@ -104,12 +104,12 @@
          c = string.lower(c) -- convert to lower case, to register both r & R.
             if c == "r" then
                 print("Server - R pressed. Restarting all clients.")
-                    rednet.broadcast("!gc reboot-all")
+                    rednet.broadcast("!gc reboot")
 		    sleep(0.1)  -- Delay to stop all computers from connecting at the same time
                     
             elseif c == "u" then
                 print("Server - U pressed. Updating all clients.")
-                    rednet.broadcast("!gc update-all")
+                    rednet.broadcast("!gc update")
 		    sleep(0.1) -- Delay to stop all computers from connecting at the same time
                     
             elseif c == "s" then

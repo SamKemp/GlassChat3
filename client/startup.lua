@@ -161,6 +161,7 @@ function receiveChat()
            rednet.send(clientS, "!gc leaving")
            sleep(1)
            shell.run("reboot")
+      else
      end
    elseif y >= startscroll then
      refreshHUD()
