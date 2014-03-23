@@ -105,7 +105,7 @@
 function sendChat()
     while true do
         e, msg_raw = os.pullEvent("chat_command")
-        rednet.send(clientS, ": "..msg_raw)
+        rednet.send(clientS, msg_raw)
      end
 end
 
@@ -116,5 +116,7 @@ function receiveChat()
  end
 end
 
+--Sends name to server
+rednet.send(clientS, "!gc username "..clientN)
 
 parallel.waitForAny(sendChat, receiveChat)

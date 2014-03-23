@@ -6,7 +6,7 @@
     serverID = os.getComputerID()
     
     serverM = nil
-    
+    local names = {}
     --Checks if computer is an advanced computer
     if term.isColor() == false then
         print("ERROR: Not an advanced computer! Please check your computer setup.")
@@ -44,8 +44,12 @@
 function clientRequests()
  while true do
    id, msg = rednet.receive()
-   print (id .." - ".. msg)
-   rednet.broadcast(msg)
+     if string.match(msg, ^!gc username) then
+	names[id] = string.sub(msg, 14)
+     else
+       print (id .." - ".. msg)
+       rednet.broadcast(names[id]...": "msg)
+     end
  end
 end
 
