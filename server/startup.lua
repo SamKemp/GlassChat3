@@ -38,7 +38,7 @@
     print("GlassChat 3 Server "..serverV)
     term.setTextColor(colors.white)
     print("ID: "..serverID)
-   
+    print("----------------------")
    -- Functions
 
 function clientRequests()
@@ -48,7 +48,7 @@ function clientRequests()
 	names[id] = string.sub(msg, 14)
 	rednet.broadcast("Computer "..id.." joined under the name of "..names[id]..".")
      else
-       print (id .." - ".. msg)
+       print (names[ID].."("..id..")  - ".. msg)
        rednet.broadcast(names[id]..": "..msg)
      end
  end

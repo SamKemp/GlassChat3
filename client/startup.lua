@@ -101,6 +101,7 @@
     print("ID: "..clientID)
     print("Server: "..clientS)
     print("Name: "..clientN)
+    print("----------------------")
 
 function sendChat()
     while true do
