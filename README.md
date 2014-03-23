@@ -16,8 +16,8 @@ The FTB Direwolf 1.6.4 modpack has all these mods already installed. This versio
 
 **Building your Cluster**
 
-Firstly, you'll need to build a GlassChat Cluster. A cluster exists out of a server and clients. All computers used need to be Advanced Computers. 
-
+Firstly, you'll need to build a GlassChat Cluster. A cluster exists out of a server and clients. 
+All computers used need to be [Advanced Computers](http://ftbwiki.org/Advanced_Computer). 
 Clients need to have a [Terminal Glasses Bridge](http://wiki.technicpack.net/Terminal_Glasses_Bridge). 
 
 Both the server and it's clients need to be connected with eachother using a ComputerCraft modem and network cables. You could swap the modem and cables with wireless modems, but rednet can't handle too many wireless requests per second. 
@@ -60,7 +60,7 @@ To send a message, type `$$` in the chat bar, followed by your message. For exam
 The GlassChat Client has several commands available. All commands start with `$$gc`, followed by the actual command. Here's a list of all the commands:
 - `$$gc help` list all commands.
 - `$$gc info` list all connected clients, their nicknames and the Server Cluster ID.
-- `$$gc users` list all connecter clients and their nicknames.
+- `$$gc users` list all connected clients and their nicknames.
 - `$$gc version` output the version of your GlassChat client.
 - `$$gc update` update your GlassChat client.
 - `$$gc reboot` reboot your GlassChat client.
