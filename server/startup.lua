@@ -53,6 +53,8 @@
     print("----------------------")
     
     rednet.broadcast("Chatroom is back online!")
+    connectedUsersCount = #names
+    rednet.broadcast(connectedUsersCount.." connected users.")
    
    -- Functions
     
