@@ -56,7 +56,10 @@ function clientRequests()
    id, msg = rednet.receive()
      
     if string.len(msg) >= 1 then
-     if string.match(msg, '^!gc username') then
+
+     if string.match(msg, '^!gc') then
+
+      if string.match(msg, '^!gc username') then
 	names[id] = string.sub(msg, 14)
 	rednet.broadcast("Computer "..id.." joined under the name of "..names[id]..".")
         print(names[id].."("..id..") joined.")
@@ -65,11 +68,30 @@ function clientRequests()
         file2.write( textutils.serialize( names ) )
         file2.close()
 
+      elseif string.match(msg, '^!gc newusername') then
+        newname = string.sub(msg, 17)
+	rednet.broadcast(names[id].."has changed his/her name to "..newname..".")
+        print(names[id].."has changed his/her name to "..newname..".")
+        names[id] = newname
+
+        file2 = fs.open("data/names","w")
+        file2.write( textutils.serialize( names ) )
+        file2.close()
+
+      elseif string.match(msg, 'stopping$') then
+          print(names[id].."("..id..") has left. ")
+          rednet.broadcast(names[id]..": has left")
+
+      elseif string.match(msg, 'update') then
+          print(names[id].."("..id..") is updating. ")
+          rednet.broadcast(names[id]..": is updating.")
+       end
+
      elseif string.len( names[id] ) >= 1 then
           print(names[id].."("..id..") - "..msg)
           rednet.broadcast(names[id]..": "..msg)
     end
-    end
+   end
  end
 end
 

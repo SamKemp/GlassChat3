@@ -137,6 +137,9 @@ function sendChat()
            y = y + z
            rednet.send(clientS, "!gc updating")
            shell.run("update")
+          elseif string.match(msg_low, '^gc nick') then
+           clientN = string.sub(msg, 9)
+           rednet.send(clientS, "!gc newusername "..clientN)
           else
            text = clientB.addText(x, y, "Invalid command! Do $$help", 0xDAA520)
            table.insert(scroll, "Invalid command! Do $$help")
