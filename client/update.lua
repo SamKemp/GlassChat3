@@ -9,7 +9,7 @@
     end
 
 clientB.clear()
-text = clientB.addText(20, 63, "GlassChat is updating!", 0xFFFF00)
+text = clientB.addText(20, 9, "GlassChat is updating!", 0xFFFF00)
 
 term.clear()
 term.setCursorPos(1,1)
