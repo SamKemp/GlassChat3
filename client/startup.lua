@@ -131,7 +131,7 @@ y = y + z
 --Sends name to server
 rednet.send(clientS, "!gc username "..clientN)
 
-function scroll()
+function autoscroll()
  while true do
   if y <= maxlines * z + starty then
     text = clientB.addText(x, y, "GlassChat ".. clientV .." - Do $$(msg) to chat!", 0xFFFF00)
@@ -145,4 +145,4 @@ function scroll()
  end
 end
 
-parallel.waitForAny(sendChat, receiveChat, scroll)
+parallel.waitForAny(sendChat, receiveChat, autoscroll)
