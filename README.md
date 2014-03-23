@@ -45,7 +45,26 @@ Now the installer will prompt you for the Server's Cluster ID. Go back to your s
 ![GlassChat communication explained.](http://assets.gingergaming.com/img/glasschat/glasschat-explained.png)
 
 ## Using GlassChat ##
-Content soon to come...
+To be able to chat, you need to wear [your Terminal Glasses linked to your Client](https://github.com/lesander/GlassChat3#how-to-get-started).
+
+**Sending Messages**
+To send a message, type `$$` in the chat bar, followed by your message. For example: `$$Hello world!` or `$$ Hello world!`.
+
+**Client Commands**
+The GlassChat Client has several commands available. All commands start with `$$gc`, followed by the actual command. Here's a list of all the commands:
+- `$$gc help` list all commands.
+- `$$gc info` list all connected clients, their nicknames and the Server Cluster ID.
+- `$$gc users` list all connecter clients and their nicknames.
+- `$$gc version` output the version of your GlassChat client.
+- `$$gc update` update your GlassChat client.
+- `$$gc reboot` reboot your GlassChat client.
+- `$$gc nick {input}` set a new nickname, where `{input}` is your new nickname.
+
+**Server Commands**
+The GlassChat Server also has some commands available to make life easier. Commands can be submitted by pressing the key of the command inside the Server's terminal.
+- Press `U` to **Update** all connected clients.
+- Press `R` to **Reboot** all connected clients.
+- Press `S` to **update and restart** the server.
 
 ## FAQ ##
 Content soon to come...
