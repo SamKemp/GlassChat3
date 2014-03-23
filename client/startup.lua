@@ -174,11 +174,13 @@ function receiveChat()
    end
 
    if y >= startscroll then
+     print("Starting autoscroll!")
      refreshHUD()
      table.remove(scroll, 1)
       for key1, value1 in pairs(scroll) do
         text = clientB.addText(x, y, string.sub(value1, 9), tonumber ( string.sub(value1, 1 , 8) ) )
         y = y + z
+        print(key1..";"..value1)
       end
     end
  end
