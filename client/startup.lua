@@ -133,11 +133,11 @@ function autoscroll()
     table.remove(scroll, 1)
     table.remove(scroll, 1)
     refreshHUD()
-      for key1, value1 in pairs(scroll) do
-        text = clientB.addText(x, y, value1, 0xFFFFFF)
-        y = y + z
-        print(key1)
-      end
+      --for key1, value1 in pairs(scroll) do
+        --text = clientB.addText(x, y, value1, 0xFFFFFF)
+       -- y = y + z
+       -- print(key1)
+      --end
    end
  end
 
