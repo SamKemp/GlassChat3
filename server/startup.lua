@@ -85,6 +85,7 @@ function clientRequests()
       elseif string.match(msg, 'update') then
           print(names[id].."("..id..") is updating. ")
           rednet.broadcast(names[id]..": is updating.")
+      else
        end
 
      elseif string.len( names[id] ) >= 1 then
