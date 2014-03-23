@@ -48,7 +48,7 @@ function clientRequests()
 	names[id] = string.sub(msg, 14)
      else
        print (id .." - ".. msg)
-       rednet.broadcast(names[id]...": "msg)
+       rednet.broadcast(names[id]..": "..msg)
      end
  end
 end
