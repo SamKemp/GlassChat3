@@ -2,11 +2,7 @@
 -- By Tiiger87 and Alexandrov01
 
 -- INITIALIZE SETTINGS
-    serverV = "3.0.0 BETA";
-    serverID = os.getComputerID()
-    
-    serverM = nil
-    local names = {}
+
     --Checks if computer is an advanced computer
     if term.isColor() == false then
         print("ERROR: Not an advanced computer! Please check your computer setup.")
@@ -29,6 +25,17 @@
         term.setTextColor(colors.white)
         error()
     end
+
+    serverV = "3.0.0 BETA";
+    serverID = os.getComputerID()
+    serverM = nil
+
+    local names = {}
+    file3 = fs.open("data/names","r")
+      snames = file3.readAll()
+    file3.close()
+    names = textutils.unserialize(snames)
+
     
     
     -- Print basic info to screen
@@ -44,18 +51,21 @@
 function clientRequests()
  while true do
    id, msg = rednet.receive()
+     
     if string.len(msg) >= 1 then
      if string.match(msg, '^!gc username') then
 	names[id] = string.sub(msg, 14)
 	rednet.broadcast("Computer "..id.." joined under the name of "..names[id]..".")
         print(names[id].."("..id..") joined.")
-     else
-	print(names[id])
-	print(id)
-        print(msg)
+
+        file2 = fs.open("data/names","w")
+        file2.write( textutils.serialize( names ) )
+        file2.close()
+
+     elseif string.len( names(id) ) >= 1 then
           print(names[id].."("..id..") - "..msg)
           rednet.broadcast(names[id]..": "..msg)
-     end
+    end
     end
  end
 end

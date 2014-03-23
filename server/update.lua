@@ -32,4 +32,8 @@ print("  Done!")
 
 print("update file updated!")
 
+print("Creating data folder...")
+    shell.run("mkdir", "data")
+print("   Done!")
+
 print("Update complete.")
