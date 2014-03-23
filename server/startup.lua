@@ -48,9 +48,7 @@ function clientRequests()
 	names[id] = string.sub(msg, 14)
 	rednet.broadcast("Computer "..id.." joined under the name of "..names[id]..".")
         print(names[id].."("..id..") joined.")
-     elseif msg == "" then
-          -- if user submitted empty chat, do nothing.
-     else
+     elseif string.len >= 0 then
           print(names[id].."("..id..")  -  "..msg)
           rednet.broadcast(names[id]..": "..msg)
     end
