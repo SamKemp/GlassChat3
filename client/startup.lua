@@ -176,7 +176,6 @@ function receiveChat()
 end
 
 function autoscroll()
- while os.pullevent(rednet_message) do
     if y >= startscroll then
      refreshHUD()
      table.remove(scroll, 1)
