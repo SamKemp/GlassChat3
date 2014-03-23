@@ -65,7 +65,7 @@ function clientRequests()
         file2.write( textutils.serialize( names ) )
         file2.close()
 
-     elseif string.len( names(id) ) >= 1 then
+     elseif string.len( names[id] ) >= 1 then
           print(names[id].."("..id..") - "..msg)
           rednet.broadcast(names[id]..": "..msg)
     end
