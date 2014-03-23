@@ -157,7 +157,7 @@ function receiveChat()
    print(message)
    table.insert(scroll, message)
    if y >= startscroll then
-    print("autoscrolling!")
+    print(x.."autoscrolling!"..y)
     refreshHUD()
     table.remove(scroll, 1)
       for key1, value1 in pairs(scroll) do
@@ -165,7 +165,7 @@ function receiveChat()
         y = y + z
       end
     else
-     print("autoscroll is not neccecary yet.")
+     print(x.."autoscroll not neccecary"..y)
      text = clientB.addText(x, y, message, 0xFFFFFF)
      y = y + z
     end
