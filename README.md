@@ -84,6 +84,6 @@ Content soon to come...
 ----------
 **This documentation is under construction, and so is GlassChat 3!**
 
-GlassChat, developed by [tiiger87](http://github.com/tiiger87) and [lesander](http://github.com/lesander) (aka Alexandrov01).
+GlassChat, developed by [Toomas Tamm](http://github.com/tiiger87) and [Sander Laarhoven](http://github.com/lesander).
 
 *GlassChat3 is licensed under the terms of the GNU GENERAL PUBLIC LICENSE Version 2, wich can be found under the name `LICENSE` in your distribution.*
