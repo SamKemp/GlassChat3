@@ -118,7 +118,7 @@ function receiveChat()
   while true do
    senderID, message = rednet.receive()
    print(message)
-   clientB.addText(x, y, message, 0xFFFFFF) 
+   text = clientB.addText(x, y, message, 0xFFFFFF) 
    y = y + z
  end
 end
