@@ -3,9 +3,9 @@
 ![Notice: Current build is not ready for use yet.](http://assets.gingergaming.com/img/glasschat/build-notready.png)
 
 Did you ever want to chat with other players in [Minecraft](http://minecraft.net), but without using the main chat? No? Well, now you do, because we present to you: GlassChat3.
-In GlassChat 3, you can send messages directly, without the server knowing, to other players. No plugins required!
+In GlassChat 3, you can send messages directly, without the server knowing, to other players. No plugins or extra mods required!
 
-**Features of GlassChat 3:**
+![](http://assets.gingergaming.com/img/glasschat/title-features.png)
 - Fast and secure chatting (no public rednet)
 - No plugins required.
 - Multi-dimensional: works everywhere, thanks to Terminal Glasses!
@@ -19,11 +19,11 @@ In GlassChat 3, you can send messages directly, without the server knowing, to o
 
 
 
-**Quick Help**
-- Quick pastebin install for **server**: `Y5R5R9Cv`.
-- Quick pastebin install for **client**: `zfmzr5vH`.
+![Downloads](http://assets.gingergaming.com/img/glasschat/title-downloads.png)
+- Pastebin installer for **server**: `Y5R5R9Cv`.
+- Pastebin installer for **client**: `zfmzr5vH`.
 
-## How to get started ##
+![Getting Started](http://assets.gingergaming.com/img/glasschat/title-gettingstarted.png)
 GlassChat 3 requires [ComputerCraft](http://computercraft.info) and [OpenPeripheral Addons](http://openmods.info/). 
 The FTB Direwolf 1.6.4 modpack has all these mods already installed. This version of GlassChat was developed on a live server with FTB Direwolf20 1.6.4 v1.0.18. GlassChat also needs the HTTP API to be enabled in your CCcraft.conf  server file.
 
@@ -56,12 +56,12 @@ Go to your client and enter `pastebin get zfmzr5vH update`. You can view the pas
 Once the download is ready, run `update`. The computer will now download the client startup.lua from GitHub and put it in the `startup` file. The installer will now prompt you for a username. Enter the name you want to be known as in the chat (No worries, you can always change your nickname later). 
 Now the installer will prompt you for the Server's Cluster ID. Go back to your server and look for the `ID: xxx` at the top of the screen. That's the Server's Cluster ID. Enter that ID at your client. The installer will now finish the setup and reboot your client.
 
-## How it works ##
+![How it works](http://assets.gingergaming.com/img/glasschat/title-how.png)
 ![GlassChat communication explained.](http://assets.gingergaming.com/img/glasschat/glasschat-map.png)
 
 *Heads-up: If you want your cluster to work when not being there, eg. in another world or far away, you'll have to chunkload the whole cluster with a Chunkloader of some sorts.*
 
-## Using GlassChat ##
+![Using GlassChat](http://assets.gingergaming.com/img/glasschat/title-usingglasschat.png)
 To be able to chat, you need to wear [your Terminal Glasses linked to your Client](https://github.com/lesander/GlassChat3#how-to-get-started).
 
 **Sending Messages**
@@ -85,11 +85,12 @@ The GlassChat Server also has some commands available to make life easier. Comma
 - Press `U` to **Update** all connected clients.
 - Press `R` to **Reboot** all connected clients.
 - Press `S` to **update and restart** the server.
+- Press `K` to **kill/stop** the server.
 
-## FAQ ##
+![FAQ](http://assets.gingergaming.com/img/glasschat/title-faq.png)
 Content soon to come...
 
-## All errors explained ##
+![All errors explained](http://assets.gingergaming.com/img/glasschat/title-errors.png)
 Content soon to come...
 
 
