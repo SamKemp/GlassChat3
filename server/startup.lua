@@ -48,7 +48,7 @@ function clientRequests()
 	names[id] = string.sub(msg, 14)
 	rednet.broadcast("Computer "..id.." joined under the name of "..names[id]..".")
         print(names[id].."("..id..") joined.")
-     elseif string.len(msg) >= 0 then
+     elseif string.len(msg) >= 1 then
           print(names[id].."("..id..")  -  "..msg)
           rednet.broadcast(names[id]..": "..msg)
     end
