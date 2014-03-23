@@ -150,12 +150,12 @@ function receiveChat()
    print(message)
    table.insert(scroll, message)
    if string.match(message, "^!gc") then
-     if string.match(message, 'update-all$') then
+     if string.match(message, 'update$') then
       text = clientB.addText(x, y, "GlassChat ".. clientV .." - Updating your client", 0xFFFF00)
            y = y + z
            rednet.send(clientS, "!gc updating")
            shell.run("update")
-     elseif string.match(message, 'reboot-all$') then
+     elseif string.match(message, 'reboot$') then
       text = clientB.addText(x, y, "GlassChat ".. clientV .." - Rebooting your client...", 0xDAA520)
            y = y + z
            rednet.send(clientS, "!gc leaving")
