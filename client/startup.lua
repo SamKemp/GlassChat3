@@ -121,7 +121,6 @@ function receiveChat()
    senderID, message = rednet.receive()
    print(message)
    autoscroll()
-   text = clientB.addText(x, y, message, 0xFFFFFF) 
    table.insert(scroll, message)
    y = y + z
  end
@@ -143,6 +142,8 @@ function autoscroll()
         text = clientB.addText(x, y, value1, 0xFFFFFF)
         y = y + z
       end
+     else
+        text = clientB.addText(x, y, message, 0xFFFFFF) 
    end
  end
 
