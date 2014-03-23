@@ -49,8 +49,13 @@ function clientRequests()
 	rednet.broadcast("Computer "..id.." joined under the name of "..names[id]..".")
         print(names[id].."("..id..") joined.")
      else
-       print (names[id].."("..id..")  -  "..msg)
-       rednet.broadcast(names[id]..": "..msg)
+       if msg == "" then
+          -- if user submitted empty chat, return a message to that user only.
+          rednet.send(id, "Enter chat before submitting!")
+       else
+          print (names[id].."("..id..")  -  "..msg)
+          rednet.broadcast(names[id]..": "..msg)
+       end
      end
  end
 end
