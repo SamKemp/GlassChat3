@@ -15,14 +15,14 @@
     clientV = "3.0.0 BETA";
     clientID = os.getComputerID()
    
-   lastMsg = {}
+   scroll = {}
     startx = 20
     x = startx
     starty = 9
     y = starty
     z = 9              --Space between lines
     maxlines = 10   --Maximum amount of messages allowed in chat before scrolling
-
+   startscroll = maxlines * z + starty
     clientM = nil
     clientB = nil
     
@@ -132,7 +132,6 @@ y = y + z
 rednet.send(clientS, "!gc username "..clientN)
 
 function autoscroll()
-  startscroll = maxlines * z + starty
  while true do
   if y >= startscroll then
     clientB.clear()
