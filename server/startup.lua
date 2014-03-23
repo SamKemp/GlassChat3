@@ -44,7 +44,7 @@
 function clientRequests()
  while true do
    id, msg = rednet.receive()
-     if string.match(msg, ^!gc username) then
+     if string.match(msg, '^!gc username') then
 	names[id] = string.sub(msg, 14)
      else
        print (id .." - ".. msg)
