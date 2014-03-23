@@ -63,7 +63,7 @@
                 if string.match(msg, '^!gc') then
                     if string.match(msg, '^!gc username') then
                         names[id] = string.sub(msg, 14)
-                        rednet.broadcast("Computer "..id.." joined under the name of "..names[id]..".")
+                        rednet.broadcast(names[id].." (ID "..id..") joined the chat.")
                         print(names[id].."("..id..") joined.")
                         file2 = fs.open("data/names","w")
                         file2.write( textutils.serialize( names ) )
