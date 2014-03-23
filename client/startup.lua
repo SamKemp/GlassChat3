@@ -117,4 +117,4 @@ function receiveChat()
 end
 
 
-parallel.waitForAny(sendChat, recieveChat)
+parallel.waitForAny(sendChat, receiveChat)
