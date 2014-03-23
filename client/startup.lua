@@ -22,7 +22,7 @@
     y = starty
     z = 9              --Space between lines
     maxlines = 10   --Maximum amount of messages allowed in chat before scrolling
-   startscroll = maxlines * z + starty
+   startscroll = 99
     clientM = nil
     clientB = nil
     
