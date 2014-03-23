@@ -14,13 +14,15 @@
     ]]--
     clientV = "3.0.0 BETA";
     clientID = os.getComputerID()
-    
+   
+   lastMsg = {}
     startx = 20
     x = startx
     starty = 9
     y = starty
     z = 9              --Space between lines
-    
+    maxlines = 10   --Maximum amount of messages allowed in chat before scrolling
+
     clientM = nil
     clientB = nil
     
@@ -118,6 +120,7 @@ function receiveChat()
   while true do
    senderID, message = rednet.receive()
    print(message)
+   table.insert(scroll, message)
    text = clientB.addText(x, y, message, 0xFFFFFF) 
    y = y + z
  end
@@ -128,4 +131,18 @@ y = y + z
 --Sends name to server
 rednet.send(clientS, "!gc username "..clientN)
 
-parallel.waitForAny(sendChat, receiveChat)
+function scroll()
+ while true do
+  if y <= maxlines * z + starty then
+    text = clientB.addText(x, y, "GlassChat ".. clientV .." - Do $$(msg) to chat!", 0xFFFF00)
+     y = y + z
+     table.remove(scroll, 1)
+      for key1, value1 in pairs(scroll) do
+        text = clientB.addText(x, y, value1, 0xFFFFFF)
+        y = y + z
+      end
+   end
+ end
+end
+
+parallel.waitForAny(sendChat, receiveChat, scroll)
