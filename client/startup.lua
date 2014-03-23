@@ -112,7 +112,38 @@
 function sendChat()
     while true do
         e, msg_raw = os.pullEvent("chat_command")
-        rednet.send(clientS, msg_raw)
+        msg_low = string.lower( msg_raw )
+
+        if msg_low == "help" then
+        -- soon to be help menu thingie still thinking about it
+        
+        elseif string.match(lowMsg, "^gc") then
+         
+          if string.match(lowMsg, 'reboot$') then
+           text = clientB.addText(x, y, "GlassChat ".. clientV .." - Rebooting your client...", 0xDAA520)
+           y = y + z
+           rednet.send(clientS, "!gc leaving")
+           sleep(1)
+           shell.run("reboot")
+         
+          elseif string.match(lowMsg, 'stop$') then
+           text = clientB.addText(x, y, "GlassChat ".. clientV .." - Stopping your client...", 0xDAA520)
+           y = y + z
+           rednet.send(clientS, "!gc leaving")
+           error("Exiting glasschat.")
+           
+          elseif string.match(lowMsg, 'update$') then
+           text = clientB.addText(x, y, "GlassChat ".. clientV .." - Updating your client", 0xFFFF00)
+           rednet.send(chatRoom, "!gc updating")
+           shell.run("update")
+          else
+           text = clientB.addText(x, y, "Invalid command! Do $$help", 0xDAA520)
+           table.insert(scroll, "Invalid command! Do $$help")
+           y = y + z
+          end
+        else
+         rednet.send(clientS, msg_raw)
+        end
      end
 end
 
