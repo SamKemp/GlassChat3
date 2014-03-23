@@ -15,7 +15,13 @@ GlassChat 3 requires [ComputerCraft](http://computercraft.info) and [OpenPeriphe
 The FTB Direwolf 1.6.4 modpack has all these mods already installed. This version of GlassChat was developed on a live server with FTB Direwolf20 1.6.4 v1.0.18. GlassChat also needs the HTTP API to be enabled in your CCcraft.conf  server file.
 
 **Building your Cluster**
-Firstly, you'll need to build a GlassChat Cluster. A cluster exists out of a server and clients. Clients need to have a [Terminal Glasses Bridge](http://wiki.technicpack.net/Terminal_Glasses_Bridge). Both the server and it's clients need to be connected with eachother using a ComputerCraft modem and network cables. You could swap the modem and cables with wireless modems, but rednet can't handle too many wireless requests per second. For small setups it's okay to use wireless modems, but for large clusters, we recommend using network cables and a normal modem.
+Firstly, you'll need to build a GlassChat Cluster. A cluster exists out of a server and clients. All computers used need to be Advanced Computers. 
+
+Clients need to have a [Terminal Glasses Bridge](http://wiki.technicpack.net/Terminal_Glasses_Bridge). 
+
+Both the server and it's clients need to be connected with eachother using a ComputerCraft modem and network cables. You could swap the modem and cables with wireless modems, but rednet can't handle too many wireless requests per second. 
+
+For small setups it's okay to use wireless modems (*Heads-up: You will need to change `rednet.broadcast()` to `rednet.send()` at the server files, collect all the connected client ID's, put those in a foreach loop and add some form of security*), but for large clusters, we recommend using network cables and a normal modem.
 
 Below you can see an example setup of a GlassChat Cluster using a modem and network cables. This cluster has two clients and one server. Theoretically, you can add as much clients to a cluster as you want. Per cluster, there can only be one server.
 
@@ -34,6 +40,9 @@ Once the download is ready, run `update`. The computer will now download the ser
 Go to your client and enter `pastebin get zfmzr5vH update`. You can view the pastebin code [here](http://pastebin.com/zfmzr5vH) if you don't trust us ;)
 Once the download is ready, run `update`. The computer will now download the client startup.lua from GitHub and put it in the `startup` file. The installer will now prompt you for a username. Enter the name you want to be known as in the chat (No worries, you can always change your nickname later). 
 Now the installer will prompt you for the Server's Cluster ID. Go back to your server and look for the `ID: xxx` at the top of the screen. That's the Server's Cluster ID. Enter that ID at your client. The installer will now finish the setup and reboot your client.
+
+## How it works ##
+![GlassChat communication explained.](http://assets.gingergaming.com/img/glasschat/glasschat-explained.png)
 
 ## Using GlassChat ##
 Content soon to come...
