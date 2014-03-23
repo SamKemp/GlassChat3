@@ -1,12 +1,26 @@
 GlassChat3
 ==========
 **The all-new GlassChat 3. By Tiger & Alex**
-
 NOTICE: Not ready for use yet.
 
-- Server files can be found in the `/server` directory.
-- Client files can be found in the `/client` directory.
-- Pastebin files (used to quick-install clients and servers) can be found in the `pastebin-files` directory.
+Did you ever want to chat with other players in [Minecraft](http://minecraft.net), but without using the main chat? No? Well, now you do, because we present to you: GlassChat3.
+In GlassChat 3, you can send messages directly, without the server knowing, to other players. No plugins required!
+
+**Features of GlassChat 3:**
+1. Fast and secure chatting (no public rednet)
+2. No plugins required.
+3. Multi-dimensional: works everywhere, thanks to Terminal Glasses!
+4. Positioned in the top-left corner of your screen, so you'll be able to follow two chats at the same time.
+5. 100% free and open source.
+6. Nicknames
+7. Colored chat
+8. Easily add custom commands
+9. Basic IRC commands
+10. And way more!
+
+
+
+**Quick Help**
 - Quick pastebin install for **server**: `Y5R5R9Cv`.
 - Quick pastebin install for **client**: `zfmzr5vH`.
 
