@@ -120,8 +120,9 @@ function receiveChat()
   while true do
    senderID, message = rednet.receive()
    print(message)
-   table.insert(scroll, message)
+   autoscroll()
    text = clientB.addText(x, y, message, 0xFFFFFF) 
+   table.insert(scroll, message)
    y = y + z
  end
 end
@@ -132,9 +133,9 @@ y = y + z
 rednet.send(clientS, "!gc username "..clientN)
 
 function autoscroll()
- while true do
   if y >= startscroll then
     clientB.clear()
+    y = starty
     text = clientB.addText(x, y, "GlassChat ".. clientV .." - Do $$(msg) to chat!", 0xFFFF00)
      y = y + z
      table.remove(scroll, 1)
@@ -143,8 +144,6 @@ function autoscroll()
         y = y + z
       end
    end
-  sleep(1)
  end
-end
 
 parallel.waitForAny(sendChat, receiveChat, autoscroll)
