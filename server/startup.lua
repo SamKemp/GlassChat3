@@ -80,7 +80,7 @@
                         
                     elseif string.match(msg, '^!gc leaving') then
                         print(names[id].."("..id..") has left.")
-                        rednet.broadcast(names[id].." has left te chat.")
+                        rednet.broadcast(names[id].." has left the chat.")
                         
                         
                     elseif string.match(msg, '^!gc updating') then
