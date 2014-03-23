@@ -167,26 +167,26 @@ function receiveChat()
     table.insert(scroll, "0xFFFF00"..message)
     text = clientB.addText(x, y, string.sub(value1, 9), 0xFFFF00)
     y = y + z
+    autoscroll()
    else
        table.insert(scroll, "0xFFFFFF"..message)
        text = clientB.addText(x, y, message, 0xFFFFFF)
        y = y + z
+       autoscroll()
    end
-
-   if y >= startscroll then
-     print("Starting autoscroll!")
-     refreshHUD()
-     table.remove(scroll, 1)
-     table.remove(scroll, 1)
-      for key1, value1 in pairs(scroll) do
-        text = clientB.addText(x, y, value1, 0xFFFFFF)
-        y = y + z
-        print(key1..";"..value1..";"..x..";"..y)
-      end
-    end
  end
 end
 
+function autoscroll()
+    if y >= startscroll then
+     refreshHUD()
+     table.remove(scroll, 1)
+      for key1, value1 in pairs(scroll) do
+        text = clientB.addText(x, y, string.sub(value1, 9) , tonumber(string.sub(value1, 1, 8) ) )
+        y = y + z
+      end
+    end
+end
 
 function refreshHUD()
  clientB.clear()
