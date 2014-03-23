@@ -184,7 +184,6 @@ function autoscroll()
         y = y + z
       end
     end
-  end
 end
 
 function refreshHUD()
