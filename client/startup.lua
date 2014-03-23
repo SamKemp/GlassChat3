@@ -120,9 +120,10 @@ function receiveChat()
   while true do
    senderID, message = rednet.receive()
    print(message)
-   autoscroll()
-   table.insert(scroll, message)
+   text = clientB.addText(x, y, value1, 0xFFFFFF)
     y = y + z
+   table.insert(scroll, message)
+   autoscroll()
  end
 end
 
@@ -145,4 +146,4 @@ function autoscroll()
    end
  end
 
-parallel.waitForAny(sendChat, receiveChat, autoscroll)
+parallel.waitForAny(sendChat, receiveChat)
