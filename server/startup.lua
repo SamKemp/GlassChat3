@@ -49,6 +49,7 @@
     print("U: Update all clients.")
     print("R: Restart all clients.")
     print("S: Update server.")
+    print("K: Kill server.")
     print("----------------------")
     
     rednet.broadcast("Chatroom is back online!")
@@ -116,6 +117,21 @@
                 print("Server - S pressed. Updating and Rebooting server.")
                     rednet.broadcast("Server is updating and restarting.")
                 shell.run("update")
+                
+            elseif c == "k" then
+                print("Server - K pressed. Killing server.")
+                    rednet.broadcast("Server is going down in 5...")
+                    sleep(1)
+                    rednet.broadcast("Server is going down in 4...")
+                    sleep(1)
+                    rednet.broadcast("Server is going down in 3...")
+                    sleep(1)
+                    rednet.broadcast("Server is going down in 2...")
+                    sleep(1)
+                    rednet.broadcast("Server is going down in 1...")
+                    sleep(1)
+                    rednet.broadcast("Server has been shut down.")
+                error()
             end
 	sleep(0)
       end
