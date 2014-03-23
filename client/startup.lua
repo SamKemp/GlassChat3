@@ -134,6 +134,7 @@ function sendChat()
            
           elseif string.match(msg_low, 'update$') then
            text = clientB.addText(x, y, "GlassChat ".. clientV .." - Updating your client", 0xFFFF00)
+           y = y + z
            rednet.send(clientS, "!gc updating")
            shell.run("update")
           else
