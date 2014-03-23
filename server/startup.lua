@@ -46,7 +46,7 @@ function clientRequests()
    id, msg = rednet.receive()
      if string.match(msg, '^!gc username') then
 	names[id] = string.sub(msg, 14)
-	rednet.broadcast("Computer "..id.." joined under the name of"..names[id])
+	rednet.broadcast("Computer "..id.." joined under the name of "..names[id]..".")
      else
        print (id .." - ".. msg)
        rednet.broadcast(names[id]..": "..msg)
