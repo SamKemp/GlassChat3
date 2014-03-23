@@ -113,30 +113,30 @@ function sendChat()
         elseif string.match(msg_low, "^gc") then
          
           if string.match(msg_low, 'reboot$') then
-           y = y + z
            text = clientB.addText(x, y, "Rebooting your client...", 0xDAA520)
+           y = y + z
            rednet.send(clientS, "!gc leaving")
            sleep(1)
            shell.run("reboot")
          
           elseif string.match(msg_low, 'stop$') then
-           y = y + z
            text = clientB.addText(x, y, "Stopping your client...", 0xDAA520)
+           y = y + z
            rednet.send(clientS, "!gc leaving")
            error("Exiting glasschat.")
            
           elseif string.match(msg_low, 'update$') then
-           y = y + z
            text = clientB.addText(x, y, "Updating your client...", 0xDAA520)
+           y = y + z
            rednet.send(clientS, "!gc updating")
            shell.run("update")
           elseif string.match(msg_low, '^gc nick') then
            clientN = string.sub(msg_raw, 9)
            rednet.send(clientS, "!gc newusername "..clientN)
           else
-           y = y + z
            text = clientB.addText(x, y, "Invalid command! Do $$help", 0xDAA520)
            table.insert(scroll, "Invalid command! Do $$help")
+           y = y + z
           end
         else
          rednet.send(clientS, msg_raw)
@@ -151,13 +151,13 @@ function receiveChat()
    if string.match(message, "^!gc") then
     table.insert(scroll, "0xFFFF00"..message)
      if string.match(message, 'update$') then
-           y = y + z
       text = clientB.addText(x, y, "GlassChat Server - Updating your client...", 0xFFFF00)
+           y = y + z
            rednet.send(clientS, "!gc updating")
            shell.run("update")
      elseif string.match(message, 'reboot$') then
-           y = y + z
       text = clientB.addText(x, y, "GlassChat Server - Rebooting your client...", 0xFFFF00)
+           y = y + z
            rednet.send(clientS, "!gc leaving")
            sleep(1)
            shell.run("reboot")
@@ -165,14 +165,12 @@ function receiveChat()
      end
    elseif string.match(message, "^!sysmsg") then
     table.insert(scroll, "0xFFFF00"..message)
-    y = y + z
     text = clientB.addText(x, y, string.sub(value1, 9), 0xFFFF00)
-    autoscroll()
+    y = y + z
    else
-       y = y + z
        table.insert(scroll, "0xFFFFFF"..message)
        text = clientB.addText(x, y, message, 0xFFFFFF)
-       autoscroll()
+       y = y + z
    end
  end
 end
@@ -182,8 +180,8 @@ function autoscroll()
      refreshHUD()
      table.remove(scroll, 1)
       for key1, value1 in pairs(scroll) do
-        y = y + z
         text = clientB.addText(x, y, string.sub(value1, 9) , tonumber(string.sub(value1, 1, 8) ) )
+        y = y + z
       end
     end
 end
@@ -193,6 +191,7 @@ function refreshHUD()
   y = starty
   x = startx
   text = clientB.addText(x, y, "GlassChat ".. clientV .." - Do $$(msg) to chat!", 0xFFFF00)
+  y = y + z
 end
 
 --Sends name to server
