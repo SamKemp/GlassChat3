@@ -134,10 +134,7 @@ rednet.send(clientS, "!gc username "..clientN)
 
 function autoscroll()
   if y >= startscroll then
-    clientB.clear()
-    y = starty
-    text = clientB.addText(x, y, "GlassChat ".. clientV .." - Do $$(msg) to chat!", 0xFFFF00)
-     y = y + z
+    refreshHUD()
      table.remove(scroll, 1)
       for key1, value1 in pairs(scroll) do
         text = clientB.addText(x, y, value1, 0xFFFFFF)
@@ -145,5 +142,13 @@ function autoscroll()
       end
    end
  end
+
+function refreshHUD()
+ clientB.clear()
+  y = starty
+  x = startx
+  text = clientB.addText(x, y, "GlassChat ".. clientV .." - Do $$(msg) to chat!", 0xFFFF00)
+  y = y + z
+end
 
 parallel.waitForAny(sendChat, receiveChat)
