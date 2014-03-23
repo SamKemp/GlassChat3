@@ -146,4 +146,4 @@ function autoscroll()
  end
 end
 
-parallel.waitForAny(sendChat, receiveChat)
+parallel.waitForAny(sendChat, receiveChat, autoscroll)
