@@ -32,7 +32,7 @@ print("5. Creating data folder...")
     shell.run("mkdir", "data")
 print("   Done!")
 
---[[print("6. Username:")
+print("6. Username:")
 function setUsername()
     print("   Enter a username: ")
     givenUser = read()
@@ -52,9 +52,9 @@ if fs.exists("data/username") then
     print("   Done!")
 else
     setUsername()
-end]]--
+end
 
-print("6. Server Cluster")
+print("7. Server Cluster")
 function setServer()
     print("   Enter Server ID: ")
     givenServer = read()
