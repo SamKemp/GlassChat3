@@ -79,13 +79,13 @@
                         file2.close()
                         
                     elseif string.match(msg, '^!gc leaving') then
-                        print(names[id].."("..id..") has left. ")
-                        rednet.broadcast(names[id]..": has left")
+                        print(names[id].."("..id..") has left.")
+                        rednet.broadcast(names[id].." has left te chat.")
                         
                         
                     elseif string.match(msg, '^!gc updating') then
-                        print(names[id].."("..id..") is updating. ")
-                        rednet.broadcast(names[id]..": is updating.")
+                        print(names[id].."("..id..") is updating.")
+                        rednet.broadcast(names[id].." is updating.")
                     else
                         
                     end
