@@ -32,9 +32,11 @@
 
     local names = {}
     file3 = fs.open("data/names","r")
-      snames = file3.readAll()
+	if file.readall() != nil then
+         snames = file3.readAll()
+         names = textutils.unserialize(snames)
+        end
     file3.close()
-    names = textutils.unserialize(snames)
 
     
     
