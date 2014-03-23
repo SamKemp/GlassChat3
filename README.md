@@ -42,7 +42,9 @@ Once the download is ready, run `update`. The computer will now download the cli
 Now the installer will prompt you for the Server's Cluster ID. Go back to your server and look for the `ID: xxx` at the top of the screen. That's the Server's Cluster ID. Enter that ID at your client. The installer will now finish the setup and reboot your client.
 
 ## How it works ##
-![GlassChat communication explained.](http://assets.gingergaming.com/img/glasschat/glasschat-explained.png)
+![GlassChat communication explained.](http://assets.gingergaming.com/img/glasschat/glasschat-map.png)
+
+*Heads-up: If you want your cluster to work when not being there, eg. in another world or far away, you'll have to chunkload the whole cluster with a Chunkloader of some sorts.*
 
 ## Using GlassChat ##
 To be able to chat, you need to wear [your Terminal Glasses linked to your Client](https://github.com/lesander/GlassChat3#how-to-get-started).
