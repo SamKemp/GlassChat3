@@ -15,7 +15,11 @@
     clientV = "3.0.0 BETA";
     clientID = os.getComputerID()
     
-    
+    startx = 20
+    x = startx
+    starty = 9
+    y = starty
+    z = 9              --Space between lines
     
     clientM = nil
     clientB = nil
@@ -114,6 +118,8 @@ function receiveChat()
   while true do
    senderID, message = rednet.receive()
    print(message)
+   y = y + z
+   text = clientB.addText(25, y, message, 0xFFFFFF)  
  end
 end
 
