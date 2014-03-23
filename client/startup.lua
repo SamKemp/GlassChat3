@@ -121,25 +121,27 @@ function receiveChat()
    senderID, message = rednet.receive()
    print(message)
    table.insert(scroll, message)
-   text = clientB.addText(x, y, message, 0xFFFFFF)
-    y = y + z
-   autoscroll()
- end
-end
-
-function autoscroll()
-  if y >= startscroll then
+   if y >= startscroll then
+    refreshHUD()
     print("autoscrolling!")
     table.remove(scroll, 1)
     table.remove(scroll, 1)
-    refreshHUD()
-      --for key1, value1 in pairs(scroll) do
-        --text = clientB.addText(x, y, value1, 0xFFFFFF)
-       -- y = y + z
-       -- print(key1)
-      --end
-   end
+      for key1, value1 in pairs(scroll) do
+        text = clientB.addText(x, y, value1, 0xFFFFFF)
+        y = y + z
+        print(key1..";"..value1)
+      end
+    else
+     text = clientB.addText(x, y, message, 0xFFFFFF)
+     y = y + z
+    end
  end
+end
+
+--function autoscroll()
+  
+-- end
+
 
 function refreshHUD()
  clientB.clear()
