@@ -12,7 +12,7 @@
         clientN = name
         clientS = chatroom
     ]]--
-    clientV = "3.0.0 BETA";
+    clientV = "3.0.0 BETA"
     clientID = os.getComputerID()
    
    scroll = {}
