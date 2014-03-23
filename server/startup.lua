@@ -51,7 +51,7 @@
     print("S: Update server.")
     print("----------------------")
     
-    rednet.broadcast("Chatroom back online!")
+    rednet.broadcast("Chatroom is back online!")
    
    -- Functions
     
