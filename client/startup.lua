@@ -113,20 +113,20 @@ function sendChat()
         elseif string.match(msg_low, "^gc") then
          
           if string.match(msg_low, 'reboot$') then
-           text = clientB.addText(x, y, "GlassChat ".. clientV .." - Rebooting your client...", 0xDAA520)
+           text = clientB.addText(x, y, "Rebooting your client...", 0xDAA520)
            y = y + z
            rednet.send(clientS, "!gc leaving")
            sleep(1)
            shell.run("reboot")
          
           elseif string.match(msg_low, 'stop$') then
-           text = clientB.addText(x, y, "GlassChat ".. clientV .." - Stopping your client...", 0xDAA520)
+           text = clientB.addText(x, y, "Stopping your client...", 0xDAA520)
            y = y + z
            rednet.send(clientS, "!gc leaving")
            error("Exiting glasschat.")
            
           elseif string.match(msg_low, 'update$') then
-           text = clientB.addText(x, y, "GlassChat ".. clientV .." - Updating your client", 0xFFFF00)
+           text = clientB.addText(x, y, "Updating your client...", 0xDAA520)
            y = y + z
            rednet.send(clientS, "!gc updating")
            shell.run("update")
@@ -156,7 +156,7 @@ function receiveChat()
            rednet.send(clientS, "!gc updating")
            shell.run("update")
      elseif string.match(message, 'reboot$') then
-      text = clientB.addText(x, y, "GlassChat ".. clientV .." - Rebooting your client...", 0xDAA520)
+      text = clientB.addText(x, y, "GlassChat ".. clientV .." - Rebooting your client...", 0xFFFF00)
            y = y + z
            rednet.send(clientS, "!gc leaving")
            sleep(1)
