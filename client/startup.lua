@@ -120,7 +120,7 @@ function receiveChat()
   while true do
    senderID, message = rednet.receive()
    print(message)
-   text = clientB.addText(x, y, value1, 0xFFFFFF)
+   text = clientB.addText(x, y, message, 0xFFFFFF)
     y = y + z
    table.insert(scroll, message)
    autoscroll()
