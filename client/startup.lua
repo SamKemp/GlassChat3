@@ -122,12 +122,12 @@ function receiveChat()
    print(message)
    text = clientB.addText(x, y, message, 0xFFFFFF)
     y = y + z
-   --table.insert(scroll, message)
+   table.insert(scroll, message)
    --autoscroll()
  end
 end
 
---[[function autoscroll()
+function autoscroll()
   if y >= startscroll then
     refreshHUD()
      table.remove(scroll, 1)
@@ -145,7 +145,7 @@ function refreshHUD()
   text = clientB.addText(x, y, "GlassChat ".. clientV .." - Do $$(msg) to chat!", 0xFFFF00)
   y = y + z
 end
-]]--
+
 --Sends name to server
 rednet.send(clientS, "!gc username "..clientN)
 
