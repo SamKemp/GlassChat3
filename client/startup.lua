@@ -12,17 +12,18 @@
         clientN = name
         clientS = chatroom
     ]]--
+
     clientV = "3.0.0 BETA"
     clientID = os.getComputerID()
    
-   scroll = {}
+    scroll = {}
     startx = 20
     x = startx
     starty = 9
     y = starty
     z = 9              --Space between lines
     maxlines = 10   --Maximum amount of messages allowed in chat before scrolling
-   startscroll = 99
+    startscroll = 99
     clientM = nil
     clientB = nil
     
@@ -90,14 +91,6 @@
     end
     
     
-    -- Opens rednet modem
-   -- clientM.open(clientM_side)
-    
-    
-    -- Get username from server
-    
-    
-    
     -- Print basic info to screen
     term.clear()
     term.setCursorPos(1,1)
@@ -156,9 +149,22 @@ function receiveChat()
    senderID, message = rednet.receive()
    print(message)
    table.insert(scroll, message)
-   if y >= startscroll then
-    refreshHUD()
-    table.remove(scroll, 1)
+   if string.match(message, "^!gc") then
+     if string.match(msg_low, 'update-all$') then
+      text = clientB.addText(x, y, "GlassChat ".. clientV .." - Updating your client", 0xFFFF00)
+           y = y + z
+           rednet.send(clientS, "!gc updating")
+           shell.run("update")
+     elseif string.match(msg_low, 'reboot-all$') then
+      text = clientB.addText(x, y, "GlassChat ".. clientV .." - Rebooting your client...", 0xDAA520)
+           y = y + z
+           rednet.send(clientS, "!gc leaving")
+           sleep(1)
+           shell.run("reboot")
+     end
+   elseif y >= startscroll then
+     refreshHUD()
+     table.remove(scroll, 1)
       for key1, value1 in pairs(scroll) do
         text = clientB.addText(x, y, value1, 0xFFFFFF)
         y = y + z
@@ -169,10 +175,6 @@ function receiveChat()
     end
  end
 end
-
---function autoscroll()
-  
--- end
 
 
 function refreshHUD()
