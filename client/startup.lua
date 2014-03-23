@@ -186,6 +186,7 @@ function autoscroll()
         y = y + z
 	print(y)
       end
+    else
     end
 end
 
