@@ -31,12 +31,13 @@
     serverM = nil
 
     local names = {}
-    file3 = fs.open("data/names","r")
-	if file3.readall() ~= "nil" then
-         snames = file3.readAll()
-         names = textutils.unserialize(snames)
+
+        if fs.exists("data/names") then
+         file3 = fs.open("data/names","r")
+          snames = file3.readAll()
+          names = textutils.unserialize(snames)
+         file3.close()
         end
-    file3.close()
 
     
     
