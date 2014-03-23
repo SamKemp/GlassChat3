@@ -123,6 +123,8 @@ function receiveChat()
  end
 end
 
+text = clientB.addText(x, y, "GlassChat ".. clientV .." - Do $$(msg) to chat!", 0xFFFF00)
+y = y + z
 --Sends name to server
 rednet.send(clientS, "!gc username "..clientN)
 
