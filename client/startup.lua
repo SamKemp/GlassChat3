@@ -68,7 +68,7 @@
     -- Get server cluster from file
     if fs.exists("data/chatroom") then
         servern = fs.open("data/chatroom", "r")
-            clientS = servern.readAll()
+            clientS = tonumber ( servern.readAll() )
         servern.close()
         if clientS == "" then
             term.setTextColor(colors.red)
