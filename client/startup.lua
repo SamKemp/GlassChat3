@@ -149,6 +149,6 @@ end
 --Sends name to server
 rednet.send(clientS, "!gc username "..clientN)
 
---refreshHUD()
+refreshHUD()
 
 parallel.waitForAny(sendChat, receiveChat)
