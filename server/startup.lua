@@ -50,10 +50,9 @@ function clientRequests()
         print(names[id].."("..id..") joined.")
      else
        if msg == "" then
-          -- if user submitted empty chat, return a message to that user only.
-          rednet.send(id, "Enter chat before submitting!")
+          -- if user submitted empty chat, do nothing.
        else
-          print (names[id].."("..id..")  -  "..msg)
+          print(names[id].."("..id..")  -  "..msg)
           rednet.broadcast(names[id]..": "..msg)
        end
      end
