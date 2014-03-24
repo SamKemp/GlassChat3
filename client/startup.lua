@@ -181,19 +181,19 @@ function autoscroll()
     if y >= startscroll then
      refreshHUD()
      table.remove(scroll, 1)
-      --for key1, value1 in pairs(scroll) do
-        --text = clientB.addText(x, y, string.sub(value1, 9) , tonumber(string.sub(value1, 1, 8) ) )
-        --y = y + z
-	--print(y)
-      --end
+      for key1, value1 in pairs(scroll) do
+        text = clientB.addText(x, y, string.sub(value1, 9) , tonumber(string.sub(value1, 1, 8) ) )
+        y = y + z
+      end
     else
     end
 end
 
 function refreshHUD()
- clientB.clear()
+  clientB.clear()
   y = starty
   x = startx
+  sleep(0.1)
   text = clientB.addText(x, y, "GlassChat ".. clientV .." - Do $$(msg) to chat!", 0xFFFF00)
   y = y + z
 end
