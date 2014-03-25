@@ -164,7 +164,7 @@ function receiveChat()
       else
      end
    elseif string.match(message, "^!sysmsg") then
-    table.insert(scroll, "0xFFFF00"..message)
+    table.insert(scroll, "0xFFFF00"..string.sub(message, 9))
     text = clientB.addText(x, y, string.sub(message, 9), 0xFFFF00)
     y = y + z
     autoscroll()
