@@ -63,9 +63,9 @@
         return int
     end
     
-    rednet.broadcast("Chatroom is back online!")
+    rednet.broadcast("!sysmsg Chatroom is back online!")
     connectedUsersCount = count(names)
-    rednet.broadcast(connectedUsersCount.." connected users.")
+    rednet.broadcast("!sysmsg "..connectedUsersCount.." connected users.")
    
    -- Functions
     
@@ -77,7 +77,7 @@
                 if string.match(msg, '^!gc') then
                     if string.match(msg, '^!gc username') then
                         names[id] = string.sub(msg, 14)
-                        rednet.broadcast(names[id].." (ID "..id..") joined the chat.")
+                        rednet.broadcast("!sysmsg "..names[id].." (ID "..id..") joined the chat.")
                         print(names[id].."("..id..") joined.")
                         file2 = fs.open("data/names","w")
                         file2.write( textutils.serialize( names ) )
@@ -85,7 +85,7 @@
                         
                     elseif string.match(msg, '^!gc newusername') then
                         newname = string.sub(msg, 17)
-                        rednet.broadcast(names[id].." has changed his/her name to "..newname..".")
+                        rednet.broadcast("!sysmsg "..names[id].." has changed his/her name to "..newname..".")
                         print(names[id].." has changed his/her name to "..newname..".")
                         names[id] = newname
                         file2 = fs.open("data/names","w")
@@ -94,12 +94,12 @@
                         
                     elseif string.match(msg, '^!gc leaving') then
                         print(names[id].."("..id..") has left.")
-                        rednet.broadcast(names[id].." has left the chat.")
+                        rednet.broadcast("!sysmsg "..names[id].." has left the chat.")
                         
                         
                     elseif string.match(msg, '^!gc updating') then
                         print(names[id].."("..id..") is updating.")
-                        rednet.broadcast(names[id].." has left the chat (updating).")
+                        rednet.broadcast("!sysmsg "..names[id].." has left the chat (updating).")
                     else
                         
                     end
@@ -128,22 +128,22 @@
                     
             elseif c == "s" then
                 print("Server - S pressed. Updating and Rebooting server.")
-                    rednet.broadcast("Server is updating and restarting.")
+                    rednet.broadcast("!sysmsg Server is updating and restarting.")
                 shell.run("update")
                 
             elseif c == "k" then
                 print("Server - K pressed. Killing server.")
-                    rednet.broadcast("Server is going down in 5...")
+                    rednet.broadcast("!sysmsg Server is going down in 5...")
                     sleep(1)
-                    rednet.broadcast("Server is going down in 4...")
+                    rednet.broadcast("!sysmsg Server is going down in 4...")
                     sleep(1)
-                    rednet.broadcast("Server is going down in 3...")
+                    rednet.broadcast("!sysmsg Server is going down in 3...")
                     sleep(1)
-                    rednet.broadcast("Server is going down in 2...")
+                    rednet.broadcast("!sysmsg Server is going down in 2...")
                     sleep(1)
-                    rednet.broadcast("Server is going down in 1...")
+                    rednet.broadcast("!sysmsg Server is going down in 1...")
                     sleep(1)
-                    rednet.broadcast("Server has been shut down.")
+                    rednet.broadcast("!sysmsg Server has been shut down.")
                 error()
             end
 	sleep(0)
