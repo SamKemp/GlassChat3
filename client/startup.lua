@@ -101,6 +101,10 @@
     print("Server: "..clientS)
     print("Name: "..clientN)
     print("----------------------")
+    print("U: Update this client.")
+    print("R: Restart this client.")
+    print("K: Kill this client.")
+    print("----------------------")
 
 function sendChat()
     while true do
@@ -198,9 +202,32 @@ function refreshHUD()
   y = y + z
 end
 
+function localCommands()
+    while true do
+         local evt, c = os.pullEvent("char") -- wait for a key press
+         c = string.lower(c) -- convert to lower case, to register both r & R.
+            if c == "r" then
+                print("Client - R pressed. Restarting this client.")
+                    rednet.send(clientS, "!gc leaving")
+                    sleep(1)
+                    os.reboot()
+            elseif c == "u" then
+                print("Client - U pressed. Updating this client.")
+                    rednet.send(clientS, "!gc updating")
+		    sleep(1)
+                    shell.run("update")
+            elseif c == "k" then
+                print("Client - K pressed. Killing this client.")
+                    rednet.send(clientS, "!gc leaving")
+                    error()
+            end
+	sleep(0)
+    end
+end
+
 --Sends name to server
 rednet.send(clientS, "!gc username "..clientN)
 
 refreshHUD()
 
-parallel.waitForAny(sendChat, receiveChat)
+parallel.waitForAny(sendChat, receiveChat, localCommands)
