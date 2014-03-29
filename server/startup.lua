@@ -88,12 +88,12 @@
     -- Send status of server to monitor (if any)
     if serverMonitorIsSet == true then
         print("Sending messages to monitor...")
-        rednet.send(monID, "status=OK")
+        rednet.send(monID, "!sysmsg to-monitor status=OK")
         sleep(1)
         rednet.send(monID, "users="..connectedUsersCount)
         sleep(1)
         print("Waiting for monitor response...")
-        while waitForMonitor == false do
+        while waitForMonitor == nil do
             print("Waiting...")
             id, msg = rednet.receive()
             if id == monID and msg == "Monitor-OK" then
