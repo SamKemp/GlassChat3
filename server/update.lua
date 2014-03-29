@@ -36,4 +36,20 @@ print("Creating data folder...")
     shell.run("mkdir", "data")
 print("   Done!")
 
+print("Enter computer monitor ID (leave empty to skip):")
+    function readMonID()
+        monID = read()
+        if monID == nil then
+            print("Computer monitor ID setup skipped.")
+            print("   Done!")
+        else
+            print("Saved monitor ID!")
+            file = fs.open("data/monitor", "w")
+            file.write( monID.readAll() )
+            file.close()
+            print("   Done!")
+        end
+    end
+    
+
 print("Update complete.")
