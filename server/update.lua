@@ -43,9 +43,9 @@ print("Enter computer monitor ID (leave empty to skip):")
             print("Computer monitor ID setup skipped.")
             print("   Done!")
         else
-            print("Saved monitor ID!")
+            print("Saving monitor ID...")
             file = fs.open("data/monitor", "w")
-            file.write( monID )
+                file.write(monID)
             file.close()
             print("   Done!")
         end
