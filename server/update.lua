@@ -39,7 +39,7 @@ print("   Done!")
 print("Enter computer monitor ID (leave empty to skip):")
     function readMonID()
         monID = read()
-        if monID == nil then
+        if monID == "" then
             print("Computer monitor ID setup skipped.")
             print("   Done!")
         else
