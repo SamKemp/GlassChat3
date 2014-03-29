@@ -31,6 +31,7 @@
         monn = fs.open("data/monitor", "r")
             serverMonitorIsSet = true
             monID = monn.readAll()
+            monID = tonumber(monID)
         monn.close()
         if monID == "" then
             term.setTextColor(colors.red)
