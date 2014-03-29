@@ -50,6 +50,6 @@ print("Enter computer monitor ID (leave empty to skip):")
             print("   Done!")
         end
     end
-    
+    readMonID()
 
 print("Update complete.")
