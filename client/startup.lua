@@ -219,6 +219,7 @@ function localCommands()
             elseif c == "k" then
                 print("Client - K pressed. Killing this client.")
                     rednet.send(clientS, "!gc leaving")
+                    sleep(1)
                     error()
             end
 	sleep(0)
