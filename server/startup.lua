@@ -86,7 +86,7 @@
     connectedUsersCount = count(names)
     
     -- Send status of server to monitor (if any)
-    if serverMonitorIsSet == true then
+    --[[if serverMonitorIsSet == true then
         print("Sending messages to monitor...")
         rednet.send(monID, "!sysmsg to-monitor status=OK")
         sleep(1)
@@ -104,7 +104,7 @@
         end
     else
         
-    end
+    end]]--
     
     -- Broadcast status of server to all clients
     rednet.broadcast("!sysmsg Chatroom is back online!")
