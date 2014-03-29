@@ -82,10 +82,6 @@
         return int
     end
     
-    rednet.broadcast("!sysmsg Chatroom is back online!")
-    connectedUsersCount = count(names)
-    rednet.broadcast("!sysmsg "..connectedUsersCount.." connected users.")
-    
     -- Send status of server to monitor (if any)
     if serverMonitorIsSet == true then
         rednet.send(monID, "status=OK")
@@ -101,8 +97,14 @@
     else
         
     end
+    
+    -- Broadcast status of server to all clients
+    rednet.broadcast("!sysmsg Chatroom is back online!")
+    connectedUsersCount = count(names)
+    rednet.broadcast("!sysmsg "..connectedUsersCount.." connected users.")
+    
    
-   -- Functions
+    -- Functions
     
     -- Client Requests
     function clientRequests()
