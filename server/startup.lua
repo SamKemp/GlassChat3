@@ -97,7 +97,7 @@
             id, msg = rednet.receive()
             if id == monID and msg == "Monitor-OK" then
                 print("Monitor ready!")
-                waitForMonitor == true
+                waitForMonitor = true
             end
         end
     else
