@@ -25,6 +25,25 @@
         term.setTextColor(colors.white)
         error()
     end
+    
+    -- Get monitor ID from file
+    if fs.exists("data/monitor") then
+        monn = fs.open("data/monitor", "r")
+            serverMonitorIsSet = true
+            monID = monn.readAll()
+        monn.close()
+        if monID == "" then
+            term.setTextColor(colors.red)
+            print("ERROR: Empty monitor ID in data/monitor!")
+            term.setTextColor(colors.white)
+            error()
+        end
+    else
+        serverMonitorIsSet = false
+        term.setTextColor(colors.orange)
+        print("WARNING: Missing monitor ID file in data/monitor!")
+        term.setTextColor(colors.white)
+    end
 
     -- Variables
     serverV = "3.0.0 BETA";
@@ -66,6 +85,22 @@
     rednet.broadcast("!sysmsg Chatroom is back online!")
     connectedUsersCount = count(names)
     rednet.broadcast("!sysmsg "..connectedUsersCount.." connected users.")
+    
+    -- Send status of server to monitor (if any)
+    if serverMonitorIsSet == true then
+        rednet.send(monID, "status=OK")
+        sleep(1)
+        rednet.send(monID, "users="..connectedUsersCount)
+        sleep(1)
+        while waitForMonitor == false do
+            id, msg = rednet.receive()
+            if id == monID and msg == "Monitor-OK" then
+                print("Monitor ready!")
+            end
+        end
+    else
+        
+    end
    
    -- Functions
     
