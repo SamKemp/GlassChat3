@@ -72,6 +72,7 @@
     print("K: Kill server.")
     print("----------------------")
     
+    -- Count conntected users/clients
     function count(input)
         if type(input)~='table' then
             return nil
@@ -82,6 +83,7 @@
         end
         return int
     end
+    connectedUsersCount = count(names)
     
     -- Send status of server to monitor (if any)
     if serverMonitorIsSet == true then
@@ -101,7 +103,6 @@
     
     -- Broadcast status of server to all clients
     rednet.broadcast("!sysmsg Chatroom is back online!")
-    connectedUsersCount = count(names)
     rednet.broadcast("!sysmsg "..connectedUsersCount.." connected users.")
     
    
