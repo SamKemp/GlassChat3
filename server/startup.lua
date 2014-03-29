@@ -92,6 +92,7 @@
         sleep(1)
         rednet.send(monID, "users="..connectedUsersCount)
         sleep(1)
+        print("Waiting for monitor response...")
         while waitForMonitor == false do
             print("Waiting...")
             id, msg = rednet.receive()
