@@ -151,7 +151,7 @@ end
 function receiveChat()
   while true do
    senderID, message = rednet.receive()
-   print(message)
+   print(senderID.." - "..message)
    if string.match(message, "^!gc") then
     table.insert(scroll, "0xFFFF00"..message)
      if string.match(message, 'update$') then
