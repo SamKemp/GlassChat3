@@ -1,6 +1,9 @@
 -- GlassChat 3 Server Update
 -- By Tiiger87 and Alexandrov01
 
+-- Change the variable branch to 'testing' if you want unstable builds.
+branch = "master"
+
 term.clear()
 term.setCursorPos(1,1)
 term.setTextColor(colors.yellow)
@@ -9,7 +12,7 @@ term.setTextColor(colors.white)
 print("")
 
 print("Fetching /server/startup.lua from GitHub...")
-    startupGet = http.get("https://raw.github.com/lesander/GlassChat3/master/server/startup.lua")
+    startupGet = http.get("https://raw.github.com/AxTo/GlassChat3/"..branch.."/server/startup.lua")
 print("  Done!")
 
 print("Updating startup...")
@@ -21,7 +24,7 @@ print("  Done!")
 print("startup file updated!")
 
 print("Fetching /server/update.lua from GitHub...")
-    updateGet = http.get("https://raw.github.com/lesander/GlassChat3/master/pastebin-files/pastebin-install-server.lua")
+    updateGet = http.get("https://raw.github.com/AxTo/GlassChat3/"..branch.."/pastebin-files/pastebin-install-server.lua")
 print("  Done!")
 
 print("Updating update...")

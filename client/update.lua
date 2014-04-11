@@ -1,6 +1,9 @@
 -- GlassChat 3 Client Update
 -- By Tiiger87 and Alexandrov01
 
+-- Change the variable branch to 'testing' if you want unstable builds.
+branch = "master"
+
  sides = {"top", "bottom", "left", "right", "front", "back"}
     for key1, value1 in pairs(sides) do
         if peripheral.getType(value1)=="openperipheral_glassesbridge" then
@@ -19,7 +22,7 @@ term.setTextColor(colors.white)
 print("")
 
 print("1. Fetching /client/startup.lua from GitHub...")
-    startupGet = http.get("https://raw.github.com/lesander/GlassChat3/master/client/startup.lua")
+    startupGet = http.get("https://raw.github.com/AxTo/GlassChat3/"..branch.."/client/startup.lua")
 print("   Done!")
 
 print("2. Updating startup...")
@@ -29,7 +32,7 @@ print("2. Updating startup...")
 print("   Done!")
 
 print("3. Fetching /client/update.lua from GitHub...")
-    updateGet = http.get("https://raw.github.com/lesander/GlassChat3/master/pastebin-files/pastebin-install-client.lua")
+    updateGet = http.get("https://raw.github.com/AxTo/GlassChat3/"..branch.."/pastebin-files/pastebin-install-client.lua")
 print("   Done!")
 
 print("4. Updating update...")
