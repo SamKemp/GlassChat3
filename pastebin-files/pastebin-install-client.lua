@@ -1,8 +1,8 @@
 -- GlassChat 3 Client Pastebin Updater/Installer
 -- By Tiiger87 and Alexandrov01
 
--- Change the variable branch to 'testing' if you want unstable builds.
-branch = "master"
+-- Change the variable branch to 'master' if you want to disable the dev-builds.
+branch = "testing"
 getfile = http.get("https://raw.github.com/AxTo/GlassChat3/"..branch.."/client/update.lua")
 print("Got update file from github...")
 file = fs.open("temp-update", "w")
