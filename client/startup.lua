@@ -193,7 +193,7 @@
           for key1, value1 in pairs(scroll) do
             --text = clientB.addText(x, y, string.sub(value1, 9) , tonumber(string.sub(value1, 1, 8) ) )
             --y = y + z
-            key1.setText( string.sub(value1, 9) )
+            _G[key1].setText( string.sub(value1, 9) )
           end
         else
         	_G[scrollEntries] = clientB.addText(x, y, message, 0xFFFFFF)	
