@@ -49,7 +49,6 @@
     -- Variables
     serverV = "3.0.0 BETA";
     serverID = os.getComputerID()
-    serverM = nil
 
     local names = {}
     if fs.exists("data/names") then
@@ -75,7 +74,7 @@
     -- Count conntected users/clients
     function count(input)
         if type(input)~='table' then
-            return nil
+            return 'unknown'
         end
         local int=0
         for k,v in pairs(input) do
@@ -108,6 +107,7 @@
     
     -- Broadcast status of server to all clients
     rednet.broadcast("!sysmsg Chatroom is back online!")
+    sleep(0.1)
     rednet.broadcast("!sysmsg "..connectedUsersCount.." connected users.")
     
    
