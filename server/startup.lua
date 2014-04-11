@@ -54,7 +54,11 @@
     if fs.exists("data/names") then
         file3 = fs.open("data/names","r")
             snames = file3.readAll()
-            names = textutils.unserialize(snames)
+            if snames == "" then
+                names = {}
+            else
+                names = textutils.unserialize(snames)
+            end
         file3.close()
     end
 
