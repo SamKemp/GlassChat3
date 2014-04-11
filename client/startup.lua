@@ -187,7 +187,7 @@
     -- Autoscroll function
     function autoscroll()
     	table.insert(scroll, "0xFFFFFF"..message)
-        if scrollentries >= maxlines then
+        if scrollEntries >= maxlines then
          --refreshHUD()
          table.remove(scroll, 1)
           for key1, value1 in pairs(scroll) do
@@ -196,7 +196,7 @@
             key1.setText( string.sub(value1, 9) )
           end
         else
-        	tostring(scrollEntries) = clientB.addText(x, y, message, 0xFFFFFF)
+        	tostring(scrollEntries) = clientB.addText(x, y, message, 0xFFFFFF)	
         	scrollEntries = scrollEntries + 1
         	y = y + z
         end
