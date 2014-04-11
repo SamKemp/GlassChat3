@@ -198,6 +198,7 @@
         else
         	tostring(scrollEntries) = clientB.addText(x, y, message, 0xFFFFFF)
         	scrollEntries = scrollEntries + 1
+        	y = y + z
         end
     end
     
