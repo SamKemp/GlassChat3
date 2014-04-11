@@ -50,7 +50,7 @@
     serverV = "3.0.0 BETA";
     serverID = os.getComputerID()
 
-    local names = {}
+    names = {}
     if fs.exists("data/names") then
         file3 = fs.open("data/names","r")
             snames = file3.readAll()
@@ -82,7 +82,6 @@
         end
         return int
     end
-    connectedUsersCount = count(names)
     
     -- Send status of server to monitor (if any)
     --[[if serverMonitorIsSet == true then
@@ -108,7 +107,7 @@
     -- Broadcast status of server to all clients
     rednet.broadcast("!sysmsg Chatroom is back online!")
     sleep(0.1)
-    rednet.broadcast("!sysmsg "..connectedUsersCount.." connected users.")
+    rednet.broadcast("!sysmsg "..count(names).." connected users.")
     
    
     -- Functions
