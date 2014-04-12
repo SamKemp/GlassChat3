@@ -154,11 +154,11 @@
        if string.match(message, "^!gc") then
 
          if string.match(message, 'update$') then
-         	autoscroll("0xFFFF00", "GlassChat Server - Updating your client...")
+         	   autoscroll("0xFFFF00", "GlassChat Server - Updating your client...")
                rednet.send(clientS, "!gc updating")
                shell.run("update")
          elseif string.match(message, 'reboot$') then
-         	autoscroll("0xFFFF00", "GlassChat Server - Rebooting your client...")
+         	   autoscroll("0xFFFF00", "GlassChat Server - Rebooting your client...")
                rednet.send(clientS, "!gc leaving")
                sleep(1)
                shell.run("reboot")
@@ -166,7 +166,7 @@
          end
 
        elseif string.match(message, "^!sysmsg") then
-        autoscroll("0xFFFF00", string.sub(message, 9))  --Passes the system message onto autoscroll()
+           autoscroll("0xFFFF00", string.sub(message, 9))  --Passes the system message onto autoscroll()
        else
            autoscroll("0xFFFFFF", message) --Passes the user message onto autoscroll()
        end
@@ -177,10 +177,10 @@
     function autoscroll(color, msg)
     	table.insert(scroll, color..msg)
         if scrollEntries >= maxlines then
-         table.remove(scroll, 1)
-          for key1, value1 in pairs(scroll) do
+          table.remove(scroll, 1)
+           for key1, value1 in pairs(scroll) do
             _G[key1].setText( string.sub(value1, 9) )
-            _G[key1].setTextColor( string.sub(value1, 1, 8) )  --Not sure if such a function exists (SetTextColor)
+            _G[key1].setColor( tonumber ( string.sub(value1, 1, 8) ) ) 
           end
         else
         	newLine(color, msg)
