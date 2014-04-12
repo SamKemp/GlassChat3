@@ -107,10 +107,10 @@
     print("K: Kill this client.")
     print("----------------------")
     
-    -- Send Chat function
+    -- Catches chat messages and decides what to do
     function sendChat()
         while true do
-            e, msg_raw = os.pullEvent("chat_command")
+            e, msg_raw = os.pullEvent("chat_command")  --$$ message from chat
             msg_low = string.lower( msg_raw )
     
             if msg_low == "help" then
@@ -119,100 +119,98 @@
             elseif string.match(msg_low, "^gc") then
              
               if string.match(msg_low, 'reboot$') then
-               text = clientB.addText(x, y, "Rebooting your client...", 0xDAA520)
-               y = y + z
+               autoscroll("0xDAA520", "Rebooting your client...")
                rednet.send(clientS, "!gc leaving")
                sleep(1)
                shell.run("reboot")
-             
               elseif string.match(msg_low, 'stop$') then
-               text = clientB.addText(x, y, "Stopping your client...", 0xDAA520)
-               y = y + z
+               autoscroll("0xDAA520", "Stopping your client...")
                rednet.send(clientS, "!gc leaving")
                error("Exiting glasschat.")
-               
               elseif string.match(msg_low, 'update$') then
-               text = clientB.addText(x, y, "Updating your client...", 0xDAA520)
-               y = y + z
+              	autoscroll("0xDAA520", "Updating your client...")
                rednet.send(clientS, "!gc updating")
                shell.run("update")
               elseif string.match(msg_low, '^gc nick') then
                clientN = string.sub(msg_raw, 9)
                rednet.send(clientS, "!gc newusername "..clientN)
+
               else
-               text = clientB.addText(x, y, "Invalid command! Do $$help", 0xDAA520)
-               table.insert(scroll, "Invalid command! Do $$help")
-               y = y + z
+              	autoscroll("0xDAA520", "Invalid command! Do $$help")
               end
+
             else
-             rednet.send(clientS, msg_raw)
+             rednet.send(clientS, msg_raw)  --Relays message to server
             end
          end
     end
     
-    -- Receive Chat function
+    -- Recieves rednet messages and decides what to do
     function receiveChat()
       while true do
-       senderID, message = rednet.receive()
+       senderID, message = rednet.receive()  --Recieves rednet message's origin computer ID and the message itself
        print(senderID.." - "..message)
+
        if string.match(message, "^!gc") then
-        table.insert(scroll, "0xFFFF00"..message)
+
          if string.match(message, 'update$') then
-          text = clientB.addText(x, y, "GlassChat Server - Updating your client...", 0xFFFF00)
-               y = y + z
+         	   autoscroll("0xFFFF00", "GlassChat Server - Updating your client...")
                rednet.send(clientS, "!gc updating")
                shell.run("update")
          elseif string.match(message, 'reboot$') then
-          text = clientB.addText(x, y, "GlassChat Server - Rebooting your client...", 0xFFFF00)
-               y = y + z
+         	   autoscroll("0xFFFF00", "GlassChat Server - Rebooting your client...")
                rednet.send(clientS, "!gc leaving")
                sleep(1)
                shell.run("reboot")
           else
          end
+
        elseif string.match(message, "^!sysmsg") then
-        table.insert(scroll, "0xFFFF00"..string.sub(message, 9))
-        text = clientB.addText(x, y, string.sub(message, 9), 0xFFFF00)
-        y = y + z
-        autoscroll()
+           autoscroll("0xFFFF00", string.sub(message, 9))  --Passes the system message onto autoscroll()
        else
-           --table.insert(scroll, "0xFFFFFF"..message)
-           --text = clientB.addText(x, y, message, 0xFFFFFF)
-           --y = y + z
-           autoscroll()
+           autoscroll("0xFFFFFF", message) --Passes the user message onto autoscroll()
        end
      end
     end
     
-    -- Autoscroll function
-    function autoscroll()
-    	table.insert(scroll, "0xFFFFFF"..message)
-        if scrollentries >= maxlines then
-         --refreshHUD()
-         table.remove(scroll, 1)
-          for key1, value1 in pairs(scroll) do
-            --text = clientB.addText(x, y, string.sub(value1, 9) , tonumber(string.sub(value1, 1, 8) ) )
-            --y = y + z
-            key1.setText( string.sub(value1, 9) )
+    -- Decides when to scroll the chat and when to make a new line
+    function autoscroll(color, msg)
+    	table.insert(scroll, color..msg)
+        if scrollEntries >= maxlines then
+          table.remove(scroll, 1)
+           for key1, value1 in pairs(scroll) do
+            _G[key1].setText( string.sub(value1, 9) )
+            _G[key1].setColor( tonumber ( string.sub(value1, 1, 8) ) ) 
           end
         else
-        	tostring(scrollEntries) = clientB.addText(x, y, message, 0xFFFFFF)
-        	scrollEntries = scrollEntries + 1
-        	y = y + z
+        	newLine(color, msg)
         end
     end
+
+    --Adds a new line on the screen
+    function newLine(color, msg)
+    	_G[scrollEntries] = clientB.addText(x, y, msg, tonumber(color) )
+    	scrollEntries = scrollEntries + 1
+    	y = y + z
+    end
+
+    --Changes the title
+    function changeTitle(title)
+    	title.setText("GlassChat ".. clientV .." - "..title)
+    end
     
-    -- Refresh HUD function
+    -- Clears the HUD and replaces everything
     function refreshHUD()
       clientB.clear()
       y = starty
       x = startx
+      scrollEntries = 0
       sleep(0.1)
       title = clientB.addText(x, y, "GlassChat ".. clientV .." - Do $$(msg) to chat!", 0xFFFF00)
       y = y + z
     end
     
-    -- Local commands function
+    -- On keypress does a local command
     function localCommands()
         while true do
              local evt, c = os.pullEvent("char") -- wait for a key press
