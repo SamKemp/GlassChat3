@@ -119,18 +119,18 @@
             elseif string.match(msg_low, "^gc") then
              
               if string.match(msg_low, 'reboot$') then
-              	newLine("0xDAA520", "Rebooting your client...")
+              	autoscroll("0xDAA520", "Rebooting your client...")
                rednet.send(clientS, "!gc leaving")
                sleep(1)
                shell.run("reboot")
              
               elseif string.match(msg_low, 'stop$') then
-              	newLine("0xDAA520", "Stopping your client...")
+              	autoscroll("0xDAA520", "Stopping your client...")
                rednet.send(clientS, "!gc leaving")
                error("Exiting glasschat.")
                
               elseif string.match(msg_low, 'update$') then
-              	newLine("0xDAA520", "Updating your client...")
+              	autoscroll("0xDAA520", "Updating your client...")
                rednet.send(clientS, "!gc updating")
                shell.run("update")
 
@@ -139,7 +139,7 @@
                rednet.send(clientS, "!gc newusername "..clientN)
 
               else
-              	newLine("0xDAA520", "Invalid command! Do $$help")
+              	autoscroll("0xDAA520", "Invalid command! Do $$help")
                 table.insert(scroll, "Invalid command! Do $$help")
               end
 
@@ -157,11 +157,11 @@
        if string.match(message, "^!gc") then
         table.insert(scroll, "0xFFFF00"..message)
          if string.match(message, 'update$') then
-         	newLine("0xFFFF00", "GlassChat Server - Updating your client...")
+         	autoscroll("0xFFFF00", "GlassChat Server - Updating your client...")
                rednet.send(clientS, "!gc updating")
                shell.run("update")
          elseif string.match(message, 'reboot$') then
-         	newLine("0xFFFF00", "GlassChat Server - Rebooting your client...")
+         	autoscroll("0xFFFF00", "GlassChat Server - Rebooting your client...")
                rednet.send(clientS, "!gc leaving")
                sleep(1)
                shell.run("reboot")
@@ -179,8 +179,8 @@
     end
     
     -- Autoscroll function
-    function autoscroll(msg)
-    	table.insert(scroll, "0xFFFFFF"..msg)
+    function autoscroll(color, msg)
+    	table.insert(scroll, color..msg)
         if scrollEntries >= maxlines then
          table.remove(scroll, 1)
           for key1, value1 in pairs(scroll) do
