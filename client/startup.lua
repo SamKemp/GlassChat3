@@ -119,31 +119,30 @@
             elseif string.match(msg_low, "^gc") then
              
               if string.match(msg_low, 'reboot$') then
-               text = clientB.addText(x, y, "Rebooting your client...", 0xDAA520)
-               y = y + z
+              	newLine("0xDAA520", "Rebooting your client...")
                rednet.send(clientS, "!gc leaving")
                sleep(1)
                shell.run("reboot")
              
               elseif string.match(msg_low, 'stop$') then
-               text = clientB.addText(x, y, "Stopping your client...", 0xDAA520)
-               y = y + z
+              	newLine("0xDAA520", "Stopping your client...")
                rednet.send(clientS, "!gc leaving")
                error("Exiting glasschat.")
                
               elseif string.match(msg_low, 'update$') then
-               text = clientB.addText(x, y, "Updating your client...", 0xDAA520)
-               y = y + z
+              	newLine("0xDAA520", "Updating your client...")
                rednet.send(clientS, "!gc updating")
                shell.run("update")
+
               elseif string.match(msg_low, '^gc nick') then
                clientN = string.sub(msg_raw, 9)
                rednet.send(clientS, "!gc newusername "..clientN)
+
               else
-               text = clientB.addText(x, y, "Invalid command! Do $$help", 0xDAA520)
-               table.insert(scroll, "Invalid command! Do $$help")
-               y = y + z
+              	newLine("0xDAA520", "Invalid command! Do $$help")
+                table.insert(scroll, "Invalid command! Do $$help")
               end
+
             else
              rednet.send(clientS, msg_raw)
             end
@@ -158,13 +157,11 @@
        if string.match(message, "^!gc") then
         table.insert(scroll, "0xFFFF00"..message)
          if string.match(message, 'update$') then
-          text = clientB.addText(x, y, "GlassChat Server - Updating your client...", 0xFFFF00)
-               y = y + z
+         	newLine("0xFFFF00", "GlassChat Server - Updating your client...")
                rednet.send(clientS, "!gc updating")
                shell.run("update")
          elseif string.match(message, 'reboot$') then
-          text = clientB.addText(x, y, "GlassChat Server - Rebooting your client...", 0xFFFF00)
-               y = y + z
+         	newLine("0xFFFF00", "GlassChat Server - Rebooting your client...")
                rednet.send(clientS, "!gc leaving")
                sleep(1)
                shell.run("reboot")
