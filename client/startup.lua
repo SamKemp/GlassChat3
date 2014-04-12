@@ -167,20 +167,20 @@
                shell.run("reboot")
           else
          end
-       elseif string.match(message, "^!sysmsg") then
-        table.insert(scroll, "0xFFFF00"..string.sub(message, 9))
-        text = clientB.addText(x, y, string.sub(message, 9), 0xFFFF00)
-        y = y + z
-        autoscroll()
+       --elseif string.match(message, "^!sysmsg") then
+        --table.insert(scroll, "0xFFFF00"..string.sub(message, 9))
+        --text = clientB.addText(x, y, string.sub(message, 9), 0xFFFF00)
+        --y = y + z
+        --autoscroll()
        else
-           autoscroll() --Passes the user message onto autoclear()
+           autoscroll(message) --Passes the user message onto autoclear()
        end
      end
     end
     
     -- Autoscroll function
-    function autoscroll()
-    	table.insert(scroll, "0xFFFFFF"..message)
+    function autoscroll(msg)
+    	table.insert(scroll, "0xFFFFFF"..msg)
         if scrollEntries >= maxlines then
          table.remove(scroll, 1)
           for key1, value1 in pairs(scroll) do
