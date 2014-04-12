@@ -119,13 +119,13 @@
             elseif string.match(msg_low, "^gc") then
              
               if string.match(msg_low, 'reboot$') then
-              	autoscroll("0xDAA520", "Rebooting your client...")
+               autoscroll("0xDAA520", "Rebooting your client...")
                rednet.send(clientS, "!gc leaving")
                sleep(1)
                shell.run("reboot")
              
               elseif string.match(msg_low, 'stop$') then
-              	autoscroll("0xDAA520", "Stopping your client...")
+               autoscroll("0xDAA520", "Stopping your client...")
                rednet.send(clientS, "!gc leaving")
                error("Exiting glasschat.")
                
@@ -140,7 +140,6 @@
 
               else
               	autoscroll("0xDAA520", "Invalid command! Do $$help")
-                table.insert(scroll, "Invalid command! Do $$help")
               end
 
             else
@@ -155,7 +154,6 @@
        senderID, message = rednet.receive()
        print(senderID.." - "..message)
        if string.match(message, "^!gc") then
-        table.insert(scroll, "0xFFFF00"..message)
          if string.match(message, 'update$') then
          	autoscroll("0xFFFF00", "GlassChat Server - Updating your client...")
                rednet.send(clientS, "!gc updating")
@@ -167,13 +165,10 @@
                shell.run("reboot")
           else
          end
-       --elseif string.match(message, "^!sysmsg") then
-        --table.insert(scroll, "0xFFFF00"..string.sub(message, 9))
-        --text = clientB.addText(x, y, string.sub(message, 9), 0xFFFF00)
-        --y = y + z
-        --autoscroll()
+       elseif string.match(message, "^!sysmsg") then
+        autoscroll("0xFFFF00", string.sub(message, 9))
        else
-           autoscroll(message) --Passes the user message onto autoclear()
+           autoscroll("0xFFFFFF", message) --Passes the user message onto autoclear()
        end
      end
     end
@@ -187,7 +182,7 @@
             _G[key1].setText( string.sub(value1, 9) )
           end
         else
-        	newLine("0xFFFFFF", message)
+        	newLine(color, msg)
         end
     end
 
