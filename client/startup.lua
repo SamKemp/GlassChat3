@@ -195,7 +195,7 @@
     end
 
     function newLine(color, msg)
-    	_G[scrollEntries] = clientB.addText(x, y,usern..": "..msg, color)
+    	_G[scrollEntries] = clientB.addText(x, y, msg, color)
     	y = y + z
     end
 
