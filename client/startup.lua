@@ -192,7 +192,7 @@
     end
 
     function newLine(color, msg)
-    	_G[scrollEntries] = clientB.addText(x, y, msg, tostring(color) )
+    	_G[scrollEntries] = clientB.addText(x, y, msg, tonumber(color) )
     	scrollEntries = scrollEntries + 1
     	y = y + z
     end
