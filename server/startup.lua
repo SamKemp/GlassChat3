@@ -180,16 +180,10 @@
                 
             elseif c == "k" then
                 print("Server - K pressed. Killing server.")
-                    rednet.broadcast("!sysmsg Server is going down in 5...")
+                for i=5, 1, -1 do
+                    rednet.broadcast("!sysmsg Server is going down in "..i)
                     sleep(1)
-                    rednet.broadcast("!sysmsg Server is going down in 4...")
-                    sleep(1)
-                    rednet.broadcast("!sysmsg Server is going down in 3...")
-                    sleep(1)
-                    rednet.broadcast("!sysmsg Server is going down in 2...")
-                    sleep(1)
-                    rednet.broadcast("!sysmsg Server is going down in 1...")
-                    sleep(1)
+                end
                     rednet.broadcast("!sysmsg Server has been shut down.")
                 error()
             end
