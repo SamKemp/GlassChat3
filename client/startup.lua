@@ -196,6 +196,7 @@
 
     function newLine(color, msg)
     	_G[scrollEntries] = clientB.addText(x, y, msg, color)
+    	scrollEntries = scrollEntries + 1
     	y = y + z
     end
 
@@ -208,6 +209,7 @@
       clientB.clear()
       y = starty
       x = startx
+      scrollEntries = 0
       sleep(0.1)
       title = clientB.addText(x, y, "GlassChat ".. clientV .." - Do $$(msg) to chat!", 0xFFFF00)
       y = y + z
