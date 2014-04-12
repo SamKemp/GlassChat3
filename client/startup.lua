@@ -176,10 +176,7 @@
         y = y + z
         autoscroll()
        else
-           --table.insert(scroll, "0xFFFFFF"..message)
-           --text = clientB.addText(x, y, message, 0xFFFFFF)
-           --y = y + z
-           autoscroll()
+           autoscroll() --Passes the user message onto autoclear()
        end
      end
     end
@@ -188,18 +185,22 @@
     function autoscroll()
     	table.insert(scroll, "0xFFFFFF"..message)
         if scrollEntries >= maxlines then
-         --refreshHUD()
          table.remove(scroll, 1)
           for key1, value1 in pairs(scroll) do
-            --text = clientB.addText(x, y, string.sub(value1, 9) , tonumber(string.sub(value1, 1, 8) ) )
-            --y = y + z
             _G[key1].setText( string.sub(value1, 9) )
           end
         else
-        	_G[scrollEntries] = clientB.addText(x, y, message, 0xFFFFFF)	
-        	scrollEntries = scrollEntries + 1
-        	y = y + z
+        	newLine("0xFFFFFF", message)
         end
+    end
+
+    function newLine(color, msg)
+    	_G[scrollEntries] = clientB.addText(x, y,usern..": "..msg, color)
+    	y = y + z
+    end
+
+    function changeTitle(title)
+    	title.setText("GlassChat ".. clientV .." - "..title)
     end
     
     -- Refresh HUD function
