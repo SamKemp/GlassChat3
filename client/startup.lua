@@ -1,8 +1,6 @@
 -- GlassChat 3 Client
 -- By Tiiger87 and Alexandrov01
 
-
--- INITIALIZE SETTINGS
     --[[
         Variables explained:
         clientV = version
