@@ -1,8 +1,6 @@
 -- GlassChat 3 Server
 -- By Tiiger87 and Alexandrov01
 
--- INITIALIZE SETTINGS
-
     --Checks if computer is an advanced computer
     if term.isColor() == false then
         print("ERROR: Not an advanced computer! Please check your computer setup.")
